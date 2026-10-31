@@ -43,6 +43,27 @@
   a { color: var(--link); }
   .go { font-weight: 600; font-size: .85rem; text-decoration: none; }
   footer { color: var(--muted); font-size: .78rem; }
+  img { max-width: 100%; }
+  .body, .row, .why, .neg { overflow-wrap: anywhere; }
+  @media screen and (max-width: 640px) {
+    body { font-size: 16px; }
+    .wrap { padding: 14px 12px 32px; gap: 14px; }
+    h1 { font-size: 1.4rem; }
+    .note { font-size: .95rem; }
+    .card { grid-template-columns: 1fr; gap: 10px; padding: 12px; }
+    .pics { width: 100%; }
+    .pics figure { flex: 0 1 calc(50% - 3px); width: auto; min-width: 0; }
+    .pics img { width: 100%; height: auto; aspect-ratio: 1; }
+    .pics figcaption { font-size: .78rem; }
+    h2 { font-size: 1.2rem; }
+    .row { font-size: .95rem; }
+    .chips { gap: 8px; }
+    .chip { font-size: .9rem; white-space: normal; }
+    a.chip { display: inline-flex; align-items: center; min-height: 44px; padding: 6px 12px 6px 10px; box-sizing: border-box; }
+    .why, .neg, .rate { font-size: .92rem; }
+    .go { display: inline-flex; align-items: center; min-height: 44px; font-size: .95rem; }
+    footer { font-size: .85rem; }
+  }
   @media print {
     :root, :root[data-theme] { color-scheme: light; --bg:#fff; --surface:#fff; --ink:#1b1f26; --muted:#5d6573; --line:#dde1e7; --amber:#b7770b; --good:#1f7a4d; --good-soft:#e3f3ea; --bad:#b3261e; --warn:#9a5b00; --warn-soft:#fdf0d8; --link:#0b5bb7; }
     @page { size: A4; margin: 10mm; }
