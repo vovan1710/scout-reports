@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Каї 4 місяці: ігри для мислення й пам’яті</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%F0%9F%A7%A0%3C/text%3E%3C/svg%3E">
+<style>  :root { --bg:#f6f3fa; --surface:#fff; --ink:#221f29; --muted:#5f5a6b; --line:#e4ddef; --accent:#7a5ea8; --amber:#a86f12; --good:#1f7a4d; --good-soft:#e2f2e7; --bad:#b3261e; --bad-soft:#fcebe9; --warn:#8f5800; --warn-soft:#fcf0d9; --link:#0b5bb7; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { color-scheme: dark; --bg:#16141a; --surface:#1f1c24; --ink:#ebe8f0; --muted:#a59fb0; --line:#332e3b; --accent:#b39ddb; --amber:#e8b04a; --good:#62cf95; --good-soft:#15291f; --bad:#ff8a80; --bad-soft:#3a1714; --warn:#f0b03c; --warn-soft:#2f2410; --link:#7db4ff; } }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { background: var(--bg); color: var(--ink); font: 15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; margin: 0; }
+  img { max-width: 100%; }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 20px 16px 40px; display: grid; gap: 12px; border-top: 4px solid var(--accent); }
+  .meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 12px; }
+  .eyebrow { font-size: .72rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); font-weight: 600; }
+  .upd { font-size: .8rem; color: var(--accent); font-weight: 600; }
+  h1 { font-size: 1.6rem; line-height: 1.15; margin: 0; }
+  .note { background: var(--warn-soft); border-left: 3px solid var(--warn); padding: 8px 12px; border-radius: 4px; font-size: .9rem; }
+  .note b { color: var(--warn); }
+    button { font: inherit; cursor: pointer; }
+  .mright { display: inline-flex; align-items: center; gap: 8px; }
+  .allbtn { display: inline-grid; place-items: center; width: 30px; height: 30px; padding: 0; background: var(--surface); color: var(--link); border: 1px solid var(--line); border-radius: 8px; }
+  .allbtn svg { width: 18px; height: 18px; transition: transform .2s; }
+  .allbtn[aria-pressed="true"] svg { transform: rotate(180deg); }
+  .ext { display: inline-grid; place-items: center; width: 30px; height: 30px; margin: -6px -4px; color: var(--link); border-radius: 8px; align-self: center; }
+  .ext svg { width: 17px; height: 17px; }
+  .ext:hover { background: var(--good-soft); }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 6px 12px; align-items: start; }
+  .card.pick { border-color: var(--good); box-shadow: 0 0 0 1px var(--good); }
+  .body { display: grid; gap: 5px; min-width: 0; overflow-wrap: anywhere; }
+  .top { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+  .rank { font-weight: 800; color: var(--amber); font-size: 1.25rem; }
+  h2 { font-size: 1.1rem; margin: 0; }
+  .badge { background: var(--good-soft); color: var(--good); border-radius: 999px; padding: 1px 9px; font-size: .75rem; font-weight: 700; }
+  .badge.lowb { background: var(--warn-soft); color: var(--warn); }
+  .row { display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: center; font-size: .9rem; }
+  .price { font-weight: 700; font-size: 1rem; }
+  .rate { display: inline-flex; gap: 6px; align-items: center; padding: 1px 8px; border-radius: 6px; font-size: .85rem; }
+  .rate.good { background: var(--good-soft); } .rate.mid { background: var(--warn-soft); }
+  .stars { position: relative; display: inline-block; color: #d6d0bf; letter-spacing: 1px; line-height: 1; }
+  .s-fill { position: absolute; left: 0; top: 0; overflow: hidden; white-space: nowrap; color: #e0a100; }
+  .note1 { margin: 0; font-size: .88rem; color: var(--muted); }
+  .hl { font-size: .86rem; font-weight: 600; border-radius: 6px; padding: 3px 8px; }
+  .hl.bad { color: var(--bad); background: var(--bad-soft); } .hl.bad::before { content: "▼ "; }
+  .hl.good { color: var(--good); background: var(--good-soft); } .hl.good::before { content: "▲ "; }
+  .chips { display: flex; flex-wrap: wrap; gap: 4px; }
+  .chip { border: 1px solid var(--line); border-radius: 999px; padding: 1px 8px 1px 5px; font-size: .8rem; white-space: nowrap; color: var(--ink); text-decoration: none; background: var(--surface); }
+  .chip::after { content: " ↗"; color: var(--link); font-size: .75em; }
+  .dot { display: inline-block; width: .75em; height: .75em; border-radius: 50%; margin-right: 4px; vertical-align: -1px; border: 1px solid #0003; }
+  .go { font-weight: 600; font-size: .85rem; color: var(--link); text-decoration: none; }
+  .toggle { grid-column: 1 / -1; background: transparent; border: 0; color: var(--link); font-weight: 600; font-size: .85rem; padding: 6px 0 0; text-align: left; min-height: 32px; }
+  .toggle { display: inline-flex; align-items: center; gap: 4px; justify-self: start; }
+  .chev { display: inline-grid; place-items: center; }
+  .chev svg { width: 22px; height: 22px; transition: transform .2s; }
+  .toggle[aria-expanded="true"] .chev svg { transform: rotate(180deg); }
+  .more { grid-column: 1 / -1; display: grid; gap: 8px; font-size: .88rem; min-width: 0; }
+  .more[hidden] { display: none; }
+  .fmt { margin: 0; }
+  .pc { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 16px; }
+  .pc h3 { font-size: .75rem; text-transform: uppercase; letter-spacing: .08em; margin: 0 0 2px; }
+  .pc .plus { color: var(--good); } .pc .minus { color: var(--bad); }
+  .pc ul { margin: 0; padding-left: 1.1em; }
+  .rev { margin: 0; display: grid; gap: 4px; }
+  .rev div { display: grid; grid-template-columns: 8.5em 1fr; gap: 8px; }
+  .rev dt { font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); font-weight: 700; padding-top: .15em; }
+  .rev dd { margin: 0; }
+  .gallery { position: relative; width: 100%; min-width: 0; }
+  .track { position: relative; display: flex; gap: 0; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; scrollbar-width: none; border-radius: 8px; }
+  .track::-webkit-scrollbar { display: none; }
+  .slide { flex: 0 0 100%; margin: 0; scroll-snap-align: start; }
+  .slide img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px; border: 1px solid var(--line); display: block; }
+  .slide { position: relative; }
+  .slide figcaption { position: absolute; left: 5px; bottom: 5px; font-size: .68rem; line-height: 1.3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #fff; background: #0008; padding: 2px 8px; border-radius: 999px; max-width: calc(100% - 16px); }
+  .gbtn { position: absolute; top: 50%; transform: translateY(-50%); width: 34px; height: 34px; border-radius: 50%; border: 0; background: rgba(255,255,255,.14); color: #fff; font-size: 1.6rem; font-weight: 300; line-height: 1; box-shadow: none; text-shadow: 0 1px 3px rgba(0,0,0,.65), 0 0 1px rgba(0,0,0,.5); border: 1px solid rgba(255,255,255,.35); -webkit-backdrop-filter: none; backdrop-filter: none; display: grid; place-items: center; padding: 0 0 3px; }
+  .gbtn.prev { left: 4px; } .gbtn.next { right: 4px; }
+  @media (hover: hover) { .gbtn:hover { background: rgba(255,255,255,.28); } }
+  .gbtn:disabled { opacity: 0; pointer-events: none; }
+  .gcount { position: absolute; top: 5px; right: 5px; font-size: .68rem; line-height: 1.3; color: #fff; background: #0008; padding: 2px 8px; border-radius: 999px; }
+  button:focus-visible, a:focus-visible, .track:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+  footer { color: var(--muted); font-size: .78rem; }
+  @media screen and (max-width: 640px) {
+    body { font-size: 16px; }
+    .wrap { padding: 14px 16px 32px; gap: 14px; }
+    h1 { font-size: 1.4rem; }
+    .card { grid-template-columns: minmax(0, 1fr); padding: 14px; }
+    .slide img { aspect-ratio: 4 / 3; }
+    .gbtn { width: 44px; height: 44px; font-size: 1.7rem; }
+    .gbtn.prev { left: 8px; } .gbtn.next { right: 8px; }
+    .gcount { top: 8px; right: 8px; font-size: .75rem; }
+    .slide figcaption { left: 8px; bottom: 8px; font-size: .78rem; }
+    h2 { font-size: 1.2rem; }
+    .row, .note1, .hl, .more { font-size: .95rem; }
+    .chips { gap: 8px; }
+    .chip { display: inline-flex; align-items: center; min-height: 44px; padding: 6px 12px 6px 10px; font-size: .9rem; white-space: normal; }
+    .toggle { min-height: 44px; font-size: 1rem; }
+    .allbtn, .ext { width: 44px; height: 44px; }
+    .ext { margin: -10px -8px; }
+    .pc { grid-template-columns: 1fr; }
+    .rev div { grid-template-columns: 1fr; gap: 0; }
+    .gallery { max-width: none; }
+    footer { font-size: .85rem; }
+  }
+
+  .tw { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; }
+  .sum { border-collapse: collapse; width: 100%; font-size: .85rem; }
+  .sum th, .sum td { padding: 6px 8px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+  .sum th { font-size: .72rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+  .sum tr:last-child td { border-bottom: 0; }
+  .sum td:nth-child(2) { white-space: nowrap; font-weight: 600; }
+  .sum a { color: var(--link); text-decoration: none; }
+  .sum tr.now td:nth-child(2) { color: var(--good); }
+  .age { font-weight: 700; font-size: .95rem; }
+  .skill { background: var(--good-soft); color: var(--good); border-radius: 999px; padding: 1px 9px; font-size: .75rem; font-weight: 700; }
+  .how { margin: 0; padding-left: 1.3em; display: grid; gap: 3px; }
+  .more h3 { font-size: .75rem; text-transform: uppercase; letter-spacing: .08em; margin: 2px 0 0; color: var(--muted); }
+  .more p { margin: 0; }
+  .more a { color: var(--link); }
+  .chip.vid::before { content: "▶ "; color: var(--bad); font-size: .8em; }
+  .slide a { display: block; color: inherit; }
+  .play { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); width: 46px; height: 32px; border-radius: 9px; background: #e00c; color: #fff; display: grid; place-items: center; font-size: 1rem; pointer-events: none; }
+  .safety { background: var(--bad-soft); border-left: 3px solid var(--bad); padding: 8px 12px; border-radius: 4px; font-size: .9rem; }
+  .safety b { color: var(--bad); }
+  .safety ul { margin: 4px 0 0; padding-left: 1.1em; }
+  .safety a, .note a, footer a { color: var(--link); }
+  @media screen and (max-width: 640px) { .sum { font-size: .8rem; } .sum th, .sum td { padding: 6px 4px; } .sum th { letter-spacing: 0; } .sum td:first-child, .sum th:first-child { padding-left: 8px; } .chip.vid { white-space: normal; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="meta"><span class="eyebrow">Когнітивний розвиток · 4–12 міс. · AAP, CDC, Harvard, NHS, ВООЗ</span><span class="mright"><span class="upd">Оновлено: 13.11.2026, 15:40 (Варшава)</span><button type="button" class="allbtn" data-all aria-label="Розгорнути всі картки" title="Розгорнути всі"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l5 5 5-5M7 13l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button></span></div>
+  <h1>Каї 4 місяці: 11 ігор для пам’яті, уваги й мислення</h1>
+  <div class="note"><b>Головне:</b> у 4 місяці мозок найкраще вчиться в живій грі з вами — розмова по черзі, ку-ку, дзеркало, брязкальце, пісні. Кілька хвилин кілька разів на день, коли Кая бадьора й спокійна. Картки впорядковані від того, що підходить <b>вже зараз</b>, до того, що стане цікавим у 6–12 міс. Тут лише когнітивні ігри — не моторика.</div>
+  <div class="safety"><b>Безпека й екрани.</b><ul>
+    <li><b>Без екранів:</b> <a href="https://www.who.int/news/item/24-04-2019-to-grow-up-healthy-children-need-to-sit-less-and-play-more">ВООЗ</a> не рекомендує екранний час до 1 року, <a href="https://www.cdc.gov/act-early/milestones/4-months.html">CDC</a> — лише відеодзвінки з рідними. Відео нижче — <b>для батьків</b>, Каї їх не показувати.</li>
+    <li><b>Стежте за сигналами:</b> відвертається, позіхає, вигинається, гикає, плаче — пауза. Гра закінчується раніше, ніж Кая втомиться (<a href="https://developingchild.harvard.edu/resources/5-steps-for-brain-building-serve-and-return/">Harvard</a>: «вчіться завершувати й починати»).</li>
+    <li>Предмети — більші за втулку від туалетного паперу, без шнурків і стрічок; дзеркало небитке; все під наглядом.</li>
+    <li>Час на животику — це фізична вправа; ку-ку, книжку чи дзеркало можна робити під час нього, поки Кая не спить і ви поруч.</li>
+    <li>Віхи CDC — орієнтир, а не тест. Якщо щось турбує — до педіатра.</li></ul></div>
+  <div class="tw"><table class="sum"><thead><tr><th>Вправа</th><th>Вік</th><th>Що тренує</th></tr></thead><tbody><tr class="now"><td><a href="#c1">1. Розмова-перекличка</a></td><td>0–24+ міс.</td><td>соціальне мислення, увага, мова</td></tr><tr class="now"><td><a href="#c2">2. «Мамська мова» й коментар усього, що бачите</a></td><td>0–18 міс.</td><td>мова, розуміння слів</td></tr><tr class="now"><td><a href="#c3">3. Ку-ку</a></td><td>3–15 міс.</td><td>постійність об’єкта, передбачення, пам’ять</td></tr><tr class="now"><td><a href="#c4">4. Дзеркало</a></td><td>4–12 міс.</td><td>увага до облич, причина-наслідок, «я»</td></tr><tr class="now"><td><a href="#c5">5. Причина й наслідок</a></td><td>3–12 міс.</td><td>причина-наслідок, пам’ять</td></tr><tr class="now"><td><a href="#c6">6. Книжки щодня</a></td><td>0–24+ міс.</td><td>увага, словник, спільна увага</td></tr><tr class="now"><td><a href="#c7">7. Пісні й потішки з паузою</a></td><td>3–24+ міс.</td><td>передбачення, пам’ять, ритм мови</td></tr><tr class="now"><td><a href="#c8">8. Гра з ім’ям</a></td><td>4–9 міс.</td><td>слухова увага, впізнавання себе</td></tr><tr class=""><td><a href="#c9">9. «Кошик скарбів»</a></td><td>5–12 міс.</td><td>дослідження, порівняння, зосередження</td></tr><tr class=""><td><a href="#c10">10. «Де іграшка?»</a></td><td>6–12 міс.</td><td>постійність об’єкта, робоча пам’ять</td></tr><tr class=""><td><a href="#c11">11. Спільна увага</a></td><td>6–18 міс.</td><td>соціальне мислення, словник</td></tr></tbody></table></div>
+  <article class="card pick" id="c1">
+    <div class="gallery" data-gal><div class="track" tabindex="0" aria-label="Кадри з відео, гортай"><figure class="slide"><a href="https://www.youtube.com/watch?v=8wSuua6pKHI"><img src="https://i.ytimg.com/vi/8wSuua6pKHI/sddefault.jpg" alt="CDC: 4 міс. відповідає звуками" loading="lazy"><span class="play">▶</span></a><figcaption>CDC: 4 міс. відповідає звуками</figcaption></figure><figure class="slide"><a href="https://www.youtube.com/watch?v=FCcQeYVNVGE"><img src="https://i.ytimg.com/vi/FCcQeYVNVGE/sddefault.jpg" alt="CDC: 6 міс. по черзі «говорить»" loading="lazy"><span class="play">▶</span></a><figcaption>CDC: 6 міс. по черзі «говорить»</figcaption></figure><figure class="slide"><a href="https://www.youtube.com/watch?v=KNrnZag17Ek"><img src="https://i.ytimg.com/vi/KNrnZag17Ek/maxresdefault.jpg" alt="Harvard: 5 кроків" loading="lazy"><span class="play">▶</span></a><figcaption>Harvard: 5 кроків</figcaption></figure></div><button type="button" class="gbtn prev" data-prev aria-label="Попереднє фото">‹</button><button type="button" class="gbtn next" data-next aria-label="Наступне фото">›</button><span class="gcount">1 / 3</span></div>
+    <div class="body">
+      <div class="top"><span class="rank">1</span><h2>Розмова-перекличка («подача й відповідь»)</h2><span class="badge">Саме зараз</span></div>
+      <div class="row"><span class="age">0–24+ міс.</span><span class="skill">соціальне мислення, увага, мова</span></div>
+      <p class="note1">Головна вправа зараз: Кая «подає» звук, погляд чи усмішку, ви «відбиваєте» і чекаєте її ходу.</p>
+      <div class="hl good">Harvard: такі обміни «будують архітектуру мозку»; у 4 міс. CDC чекає, що дитина відповідає звуками.</div>
+      <div class="chips"><a class="chip vid" href="https://www.youtube.com/watch?v=KNrnZag17Ek">Harvard: 5 кроків «подачі й відповіді» (6 хв)</a><a class="chip vid" href="https://www.youtube.com/watch?v=8wSuua6pKHI">CDC: 4 міс. — відповідає звуками</a><a class="chip vid" href="https://www.youtube.com/watch?v=FCcQeYVNVGE">CDC: 6 міс. — «говорить» по черзі</a></div>
+    </div>
+    <button type="button" class="toggle" aria-expanded="false" aria-controls="c1-more">Деталі<span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+    <div class="more" id="c1-more" hidden>
+      <h3>Як робити</h3><ol class="how"><li>Обличчя на відстані 20–30 см, коли Кая спокійна й сита.</li><li>Помітьте її «подачу»: «а-гу», усмішку, погляд на іграшку.</li><li>Відповідайте тим самим звуком і додайте слово: «А-гу! Так, ти розповідаєш!»</li><li><b>Пауза 3–5 секунд</b> — дайте їй час відповісти. Це найважливіше.</li><li>Відвернулась, позіхає, вигинається — це кінець раунду. Відпочиньте.</li></ol>
+      <h3>Чому це працює</h3><p>Harvard Center on the Developing Child: зворотні обміни зміцнюють нейронні зв’язки для мови й соціальних навичок. У дослідженні Goldstein 2003 діти, яким мами відповідали <i>саме у відповідь</i> на звуки, почали лепетати зрілішими складами, а випадкові відповіді такого ефекту не дали.</p>
+      <h3>Джерела</h3><div class="chips"><a class="chip" href="https://developingchild.harvard.edu/resources/serve-and-return/">Harvard: Serve and Return</a><a class="chip" href="https://developingchild.harvard.edu/resources/5-steps-for-brain-building-serve-and-return/">Harvard: 5 кроків</a><a class="chip" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC164707/">Goldstein 2003, PNAS</a><a class="chip" href="https://www.cdc.gov/act-early/milestones/4-months.html">CDC: віхи 4 міс.</a></div>
+    </div>
+  </article>
+  <article class="card" id="c2">
+    <div class="gallery" data-gal><div class="track" tabindex="0" aria-label="Кадри з відео, гортай"><figure class="slide"><a href="https://www.youtube.com/watch?v=LQ7yZJavpdc"><img src="https://i.ytimg.com/vi/LQ7yZJavpdc/maxresdefault.jpg" alt="Pathways: «Copy-Cat Chit-Chat»" loading="lazy"><span class="play">▶</span></a><figcaption>Pathways: «Copy-Cat Chit-Chat»</figcaption></figure><figure class="slide"><a href="https://www.youtube.com/watch?v=m36MhGfBYAY"><img src="https://i.ytimg.com/vi/m36MhGfBYAY/maxresdefault.jpg" alt="Патриція Кул про «дитячу мову»" loading="lazy"><span class="play">▶</span></a><figcaption>Патриція Кул про «дитячу мову»</figcaption></figure></div><button type="button" class="gbtn prev" data-prev aria-label="Попереднє фото">‹</button><button type="button" class="gbtn next" data-next aria-label="Наступне фото">›</button><span class="gcount">1 / 2</span></div>
+    <div class="body">
+      <div class="top"><span class="rank">2</span><h2>«Мамська мова» й коментар усього, що бачите</h2><span class="badge">Саме зараз</span></div>
+      <div class="row"><span class="age">0–18 міс.</span><span class="skill">мова, розуміння слів</span></div>
+      <p class="note1">Говоріть повільно, співуче, з високими інтонаціями; називайте, що робите й бачите.</p>
+      <div class="hl good">У рандомізованому дослідженні (PNAS 2020) діти батьків, яких вчили так говорити, у 14–18 міс. мали більше слів.</div>
+      <div class="chips"><a class="chip vid" href="https://www.youtube.com/watch?v=LQ7yZJavpdc">Pathways: «розмова-повтор» (тиждень 15)</a><a class="chip vid" href="https://www.youtube.com/watch?v=m36MhGfBYAY">Patricia Kuhl: навіщо «дитяча мова» (5 хв)</a></div>
+    </div>
+    <button type="button" class="toggle" aria-expanded="false" aria-controls="c2-more">Деталі<span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+    <div class="more" id="c2-more" hidden>
+      <h3>Як робити</h3><ol class="how"><li>Пелени: «Знімаємо шкарпетку… ось ніжка! Де друга ніжка?»</li><li>Купання: «Вода тепла. Хлюп-хлюп! Ручки мокрі.»</li><li>Тягніть голосні, говоріть вище: «Подиви-и-ись, яка ло-о-жечка!» — але справжніми словами, не сюсюканням.</li><li>Повторюйте ті самі слова щодня: мама, тато, молоко, пити, ведмедик.</li><li>Говоріть до неї, а не поруч із нею: фон телевізора чи чужа розмова не рахуються.</li></ol>
+      <h3>Чому це працює</h3><p>Ferjan Ramírez, Lytle, Kuhl (PNAS 2020): з 6 міс. батьків навчали «parentese» і розмові один-на-один; у їхніх дітей стало більше «розмовних обмінів» і майже вдвічі більше слів. Bergelson & Swingley (PNAS 2012): уже в 6–9 міс. діти розуміють значення частих слів (їжа, частини тіла), тож називати речі варто вже зараз.</p>
+      <h3>Джерела</h3><div class="chips"><a class="chip" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7035517/">Ferjan Ramírez 2020, PNAS</a><a class="chip" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3295309/">Bergelson &amp; Swingley 2012, PNAS</a><a class="chip" href="https://www.nhs.uk/best-start-in-life/baby/learning-to-talk/first-sounds-0-to-6-months/">NHS: перші звуки 0–6 міс.</a><a class="chip" href="https://www.cdc.gov/act-early/milestones/6-months.html">CDC: віхи 6 міс.</a></div>
+    </div>
+  </article>
+  <article class="card" id="c3">
+    <div class="gallery" data-gal><div class="track" tabindex="0" aria-label="Кадри з відео, гортай"><figure class="slide"><a href="https://www.youtube.com/watch?v=phJvUpvbVBU"><img src="https://i.ytimg.com/vi/phJvUpvbVBU/maxresdefault.jpg" alt="Pathways: етапи гри в ку-ку" loading="lazy"><span class="play">▶</span></a><figcaption>Pathways: етапи гри в ку-ку</figcaption></figure><figure class="slide"><a href="https://www.youtube.com/watch?v=qKM4JzToM-A"><img src="https://i.ytimg.com/vi/qKM4JzToM-A/maxresdefault.jpg" alt="TED-Ed: чому діти люблять ку-ку" loading="lazy"><span class="play">▶</span></a><figcaption>TED-Ed: чому діти люблять ку-ку</figcaption></figure></div><button type="button" class="gbtn prev" data-prev aria-label="Попереднє фото">‹</button><button type="button" class="gbtn next" data-next aria-label="Наступне фото">›</button><span class="gcount">1 / 2</span></div>
+    <div class="body">
+      <div class="top"><span class="rank">3</span><h2>Ку-ку (хованки з обличчям)</h2><span class="badge">Саме зараз</span></div>
+      <div class="row"><span class="age">3–15 міс.</span><span class="skill">постійність об’єкта, передбачення, пам’ять</span></div>
+      <p class="note1">Сховайте обличчя за долонями чи пелюшкою — «Де мама?» — і з’явіться: «Ку-ку!»</p>
+      <div class="hl good">CDC радить ку-ку вже з 4 міс.; AAP: хованки поступово будують розуміння, що зникле існує далі.</div>
+      <div class="chips"><a class="chip vid" href="https://www.youtube.com/watch?v=phJvUpvbVBU">Pathways: як змінюється ку-ку від 0 до 12+ міс.</a><a class="chip vid" href="https://www.youtube.com/watch?v=qKM4JzToM-A">TED-Ed: наука про ку-ку (5 хв)</a></div>
+    </div>
+    <button type="button" class="toggle" aria-expanded="false" aria-controls="c3-more">Деталі<span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+    <div class="more" id="c3-more" hidden>
+      <h3>Як робити</h3><ol class="how"><li>Зараз (4–6 міс.): ховайтесь ненадовго, 1–2 с, і з’являйтесь з того самого місця.</li><li>Потім з’являйтесь з різних боків — збоку, згори: Кая вчиться стежити й передбачати.</li><li>Накрийте легкою пелюшкою <i>іграшку</i> чи свою голову, не обличчя дитини.</li><li>6–9 міс.: подовжуйте паузу — вона чекає і сміється заздалегідь.</li><li>9–12 міс.: дайте їй самій стягнути пелюшку або сховатись.</li></ol>
+      <h3>Чому це працює</h3><p>Parrott & Gleitman (1989): немовлята в ку-ку чекають, що з’явиться <i>та сама</i> людина й у тому самому місці, і дивуються, коли ні — гра тренує очікування й пам’ять. AAP HealthyChildren: «хованки на кшталт ку-ку» розвивають постійність об’єкта протягом багатьох місяців. За CDC, у 9 міс. дитина вже сміється під час ку-ку.</p>
+      <h3>Джерела</h3><div class="chips"><a class="chip" href="https://www.cdc.gov/act-early/milestones/4-months.html">CDC: віхи 4 міс.</a><a class="chip" href="https://www.healthychildren.org/English/ages-stages/baby/Pages/Cognitive-Development-4-to-7-Months.aspx">AAP HealthyChildren: 4–7 міс.</a><a class="chip" href="https://www.semanticscholar.org/paper/3a0a070c8bd8d3c1dc3812b9740be17cbccc625e">Parrott &amp; Gleitman 1989</a><a class="chip" href="https://www.cdc.gov/act-early/milestones/9-months.html">CDC: віхи 9 міс.</a></div>
+    </div>
+  </article>
+  <article class="card" id="c4">
+    <div class="gallery"><div class="track" tabindex="0" aria-label="Кадри з відео, гортай"><figure class="slide"><a href="https://www.youtube.com/watch?v=Wipy0AWkLHo"><img src="https://i.ytimg.com/vi/Wipy0AWkLHo/maxresdefault.jpg" alt="Pathways: гра з дзеркалом" loading="lazy"><span class="play">▶</span></a><figcaption>Pathways: гра з дзеркалом</figcaption></figure></div></div>
+    <div class="body">
+      <div class="top"><span class="rank">4</span><h2>Дзеркало: «Хто там?»</h2><span class="badge">Саме зараз</span></div>
+      <div class="row"><span class="age">4–12 міс.</span><span class="skill">увага до облич, причина-наслідок, «я»</span></div>
+      <p class="note1">Тримайте Каю перед дзеркалом або поставте небитке дитяче дзеркало поруч на килимку.</p>
+      <div class="hl good">CDC: у 6 міс. дитина «любить дивитися на себе в дзеркало». Рух → відображення рухається — перший урок про себе.</div>
+      <div class="chips"><a class="chip vid" href="https://www.youtube.com/watch?v=Wipy0AWkLHo">Pathways: як грати з дзеркалом (1 хв)</a></div>
+    </div>
+    <button type="button" class="toggle" aria-expanded="false" aria-controls="c4-more">Деталі<span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+    <div class="more" id="c4-more" hidden>
+      <h3>Як робити</h3><ol class="how"><li>Сядьте з нею перед дзеркалом: «Хто це? Це Кая! А це мама!»</li><li>Помахайте її ручкою, торкніться носика: «Ось носик Каї» — вона бачить рух і відчуває дотик.</li><li>Корчте гримаси в дзеркалі — вона порівнює ваше справжнє обличчя і відображення.</li><li>Під час часу на животику поставте поруч небитке дзеркальце — подовжує цікавість (це бонус, не мета).</li><li>Тільки небиткі дитячі дзеркала, без скла.</li></ol>
+      <h3>Чому це працює</h3><p>Bahrick & Watson (1985): уже 5-місячні діти відрізняють відео, яке рухається <i>в такт</i> з їхніми ніжками, від чужого — це основа відчуття «це я». Дзеркало дає саме такий миттєвий зв’язок «я рухаюсь — воно рухається». CDC включає інтерес до дзеркала у віхи 6 міс.</p>
+      <h3>Джерела</h3><div class="chips"><a class="chip" href="https://www.cdc.gov/act-early/milestones/6-months.html">CDC: віхи 6 міс.</a><a class="chip" href="https://doi.org/10.1037/0012-1649.21.6.963">Bahrick &amp; Watson 1985, Dev Psychol</a></div>
+    </div>
+  </article>
+  <article class="card" id="c5">
+    <div class="gallery" data-gal><div class="track" tabindex="0" aria-label="Кадри з відео, гортай"><figure class="slide"><a href="https://www.youtube.com/watch?v=LQ7yZJavpdc"><img src="https://i.ytimg.com/vi/LQ7yZJavpdc/maxresdefault.jpg" alt="Pathways: «Rattle Shakes»" loading="lazy"><span class="play">▶</span></a><figcaption>Pathways: «Rattle Shakes»</figcaption></figure><figure class="slide"><a href="https://www.youtube.com/watch?v=cQvyeX96jn0"><img src="https://i.ytimg.com/vi/cQvyeX96jn0/maxresdefault.jpg" alt="Pathways: «On and Off»" loading="lazy"><span class="play">▶</span></a><figcaption>Pathways: «On and Off»</figcaption></figure></div><button type="button" class="gbtn prev" data-prev aria-label="Попереднє фото">‹</button><button type="button" class="gbtn next" data-next aria-label="Наступне фото">›</button><span class="gcount">1 / 2</span></div>
+    <div class="body">
+      <div class="top"><span class="rank">5</span><h2>Причина й наслідок: брязкальце, «увімк.–вимк.», «впало — подали»</h2><span class="badge">Саме зараз</span></div>
+      <div class="row"><span class="age">3–12 міс.</span><span class="skill">причина-наслідок, пам’ять</span></div>
+      <p class="note1">Дайте те, що відповідає на її дію: брязкальце звучить, коли вона трусить; світло вмикається, коли ви кажете «Увімкнули!».</p>
+      <div class="hl good">AAP: з 4 міс. діти уточнюють поняття «причина-наслідок»; в експериментах 3-місячні пам’ятали «що робить мій рух» днями.</div>
+      <div class="chips"><a class="chip vid" href="https://www.youtube.com/watch?v=LQ7yZJavpdc&amp;t=65s">Pathways: брязкальце (з 1:05)</a><a class="chip vid" href="https://www.youtube.com/watch?v=cQvyeX96jn0">Pathways: «Увімкнули — вимкнули»</a></div>
+    </div>
+    <button type="button" class="toggle" aria-expanded="false" aria-controls="c5-more">Деталі<span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+    <div class="more" id="c5-more" hidden>
+      <h3>Як робити</h3><ol class="how"><li>Легке брязкальце в ручку: вона трусить — звук. Скажіть: «Дзень! Це ти зробила!»</li><li>Повільно вмикайте й вимикайте лампу чи ліхтарик, називаючи: «Увімкнули! Вимкнули!»</li><li>Зім’ятий папір чи шуршалка: м’яла — шурхотить.</li><li>Від ~6 міс.: вона кидає іграшку — ви підносите й кажете «Впала! Ось вона». CDC так і радить.</li><li>Не прив’язуйте стрічки до ручок чи ніжок — так робили тільки в лабораторії під наглядом.</li></ol>
+      <h3>Чому це працює</h3><p>У класичних дослідах Rovee-Collier 3-місячні діти, у яких рух ніжки рухав мобіль, пам’ятали цей зв’язок кілька днів, а з повторами — довше (Hartshorn 1998; Cuevas 2016). Тобто ігри, де Кая <i>сама</i> викликає результат, тренують і розуміння причин, і пам’ять. AAP HealthyChildren: бовтання, стукання й кидання — так дитина вивчає «що буде, якщо…».</p>
+      <h3>Джерела</h3><div class="chips"><a class="chip" href="https://www.healthychildren.org/English/ages-stages/baby/Pages/Cognitive-Development-4-to-7-Months.aspx">AAP HealthyChildren: 4–7 міс.</a><a class="chip" href="https://pubmed.ncbi.nlm.nih.gov/9810477/">Hartshorn 1998, Dev Psychobiol</a><a class="chip" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7015102/">Cuevas, Rovee-Collier 2016</a><a class="chip" href="https://www.cdc.gov/act-early/milestones/6-months.html">CDC: віхи 6 міс.</a></div>
+    </div>
+  </article>
+  <article class="card" id="c6">
+    <div class="gallery" data-gal><div class="track" tabindex="0" aria-label="Кадри з відео, гортай"><figure class="slide"><a href="https://www.youtube.com/watch?v=nxr5lXX7fHU"><img src="https://i.ytimg.com/vi/nxr5lXX7fHU/maxresdefault.jpg" alt="Pathways: «Break Out the Board Books»" loading="lazy"><span class="play">▶</span></a><figcaption>Pathways: «Break Out the Board Books»</figcaption></figure><figure class="slide"><a href="https://www.youtube.com/watch?v=QW4iY1x7zMY"><img src="https://i.ytimg.com/vi/QW4iY1x7zMY/maxresdefault.jpg" alt="Pathways: читаємо немовляті" loading="lazy"><span class="play">▶</span></a><figcaption>Pathways: читаємо немовляті</figcaption></figure></div><button type="button" class="gbtn prev" data-prev aria-label="Попереднє фото">‹</button><button type="button" class="gbtn next" data-next aria-label="Наступне фото">›</button><span class="gcount">1 / 2</span></div>
+    <div class="body">
+      <div class="top"><span class="rank">6</span><h2>Книжки щодня: дивимось, називаємо, показуємо</h2><span class="badge">Саме зараз</span></div>
+      <div class="row"><span class="age">0–24+ міс.</span><span class="skill">увага, словник, спільна увага</span></div>
+      <p class="note1">Картонні книжки з великими картинками й обличчями; не треба читати текст — говоріть про картинки.</p>
+      <div class="hl good">AAP (2024) радить ділитись книжкою з народження; у дослідженні Pediatrics 2018 читання й гра покращили поведінку й увагу.</div>
+      <div class="chips"><a class="chip vid" href="https://www.youtube.com/watch?v=nxr5lXX7fHU&amp;t=20s">Pathways: книжки в 4–6 міс. (з 0:20)</a><a class="chip vid" href="https://www.youtube.com/watch?v=QW4iY1x7zMY">Pathways: як читати немовляті (1 хв)</a></div>
+    </div>
+    <button type="button" class="toggle" aria-expanded="false" aria-controls="c6-more">Деталі<span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+    <div class="more" id="c6-more" hidden>
+      <h3>Як робити</h3><ol class="how"><li>2–3 хв на день, коли вона бадьора; разом із часом на животику чи на колінах.</li><li>Показуйте пальцем і називайте: «Це песик. Песик каже гав!»</li><li>Чекайте її звуку й відповідайте: «Так, це песик!» (CDC 6 міс.).</li><li>Та сама книжка багато разів — це добре: впізнавання = пам’ять.</li><li>Тканинні книжки з текстурами — щоб брати в рот і хапати.</li></ol>
+      <h3>Чому це працює</h3><p>AAP Policy Statement 2024 (Klass та ін.) радить педіатрам заохочувати спільне читання від народження: воно розвиває мову й зв’язок «дорослий–дитина». Mendelsohn та ін. (Pediatrics 2018, рандомізоване дослідження): читання й гра з немовлятами з 0 до 3 років зменшили гіперактивність і проблеми уваги згодом.</p>
+      <h3>Джерела</h3><div class="chips"><a class="chip" href="https://pubmed.ncbi.nlm.nih.gov/39342414/">AAP 2024: читання з народження</a><a class="chip" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5914489/">Mendelsohn 2018, Pediatrics</a><a class="chip" href="https://www.cdc.gov/act-early/milestones/6-months.html">CDC: віхи 6 міс.</a></div>
+    </div>
+  </article>
+  <article class="card" id="c7">
+    <div class="gallery" data-gal><div class="track" tabindex="0" aria-label="Кадри з відео, гортай"><figure class="slide"><a href="https://www.youtube.com/watch?v=mWklSd-hMPs"><img src="https://i.ytimg.com/vi/mWklSd-hMPs/maxresdefault.jpg" alt="Pathways: «Action Songs»" loading="lazy"><span class="play">▶</span></a><figcaption>Pathways: «Action Songs»</figcaption></figure><figure class="slide"><a href="https://www.youtube.com/watch?v=a8Wbsos3mko"><img src="https://i.ytimg.com/vi/a8Wbsos3mko/maxresdefault.jpg" alt="«Сорока-ворона» українською" loading="lazy"><span class="play">▶</span></a><figcaption>«Сорока-ворона» українською</figcaption></figure></div><button type="button" class="gbtn prev" data-prev aria-label="Попереднє фото">‹</button><button type="button" class="gbtn next" data-next aria-label="Наступне фото">›</button><span class="gcount">1 / 2</span></div>
+    <div class="body">
+      <div class="top"><span class="rank">7</span><h2>Пісні й потішки з паузою («Сорока-ворона», «Ладусі»)</h2><span class="badge">Саме зараз</span></div>
+      <div class="row"><span class="age">3–24+ міс.</span><span class="skill">передбачення, пам’ять, ритм мови</span></div>
+      <p class="note1">Ті самі пісеньки щодня з рухами пальчиків і паузою перед «кульмінацією» — дитина вчиться чекати і передбачати.</p>
+      <div class="hl good">Діти довше утримують увагу на маминому співі, ніж на розмові (Nakata &amp; Trehub 2004).</div>
+      <div class="chips"><a class="chip vid" href="https://www.youtube.com/watch?v=mWklSd-hMPs&amp;t=18s">Pathways: пісні з рухами (з 0:18)</a><a class="chip vid" href="https://www.youtube.com/watch?v=a8Wbsos3mko">Як розповідати «Сорока-ворона» (укр., для дорослих)</a></div>
+    </div>
+    <button type="button" class="toggle" aria-expanded="false" aria-controls="c7-more">Деталі<span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+    <div class="more" id="c7-more" hidden>
+      <h3>Як робити</h3><ol class="how"><li>«Сорока-ворона кашку варила…» — водите пальцем по долоньці, загинаєте пальчики.</li><li>«Ладусі-ладусі» — плескайте її долоньками.</li><li>«Ось іде коза рогата» — пауза… і «забоде!» з лоскотом. Через тиждень вона почне усміхатись <b>до</b> лоскоту — це передбачення.</li><li>Наспівуйте те саме під час переодягання й купання — пісня стає сигналом, що буде далі.</li><li>Наживо, вашим голосом — не з колонки чи телефона.</li></ol>
+      <h3>Чому це працює</h3><p>Nakata & Trehub (2004): 6-місячні діти довше дивляться й менше рухаються, коли мама співає, ніж коли говорить, — спів сильно тримає увагу. NHS радить співати й розповідати потішки з перших місяців. Пауза перед «забоде!» — та сама гра в очікування, що й ку-ку.</p>
+      <h3>Джерела</h3><div class="chips"><a class="chip" href="https://doi.org/10.1016/j.infbeh.2004.03.002">Nakata &amp; Trehub 2004</a><a class="chip" href="https://www.nhs.uk/best-start-in-life/baby/learning-to-talk/first-sounds-0-to-6-months/">NHS: перші звуки 0–6 міс.</a><a class="chip" href="https://www.cdc.gov/act-early/milestones/6-months.html">CDC: віхи 6 міс.</a></div>
+    </div>
+  </article>
+  <article class="card" id="c8">
+    <div class="gallery" data-gal><div class="track" tabindex="0" aria-label="Кадри з відео, гортай"><figure class="slide"><a href="https://www.youtube.com/watch?v=dPvQazyoRS0"><img src="https://i.ytimg.com/vi/dPvQazyoRS0/sddefault.jpg" alt="CDC: 4 міс. повертається на голос" loading="lazy"><span class="play">▶</span></a><figcaption>CDC: 4 міс. повертається на голос</figcaption></figure><figure class="slide"><a href="https://www.youtube.com/watch?v=2zEEh4hM7dw"><img src="https://i.ytimg.com/vi/2zEEh4hM7dw/sddefault.jpg" alt="CDC: 9 міс. реагує на ім’я" loading="lazy"><span class="play">▶</span></a><figcaption>CDC: 9 міс. реагує на ім’я</figcaption></figure></div><button type="button" class="gbtn prev" data-prev aria-label="Попереднє фото">‹</button><button type="button" class="gbtn next" data-next aria-label="Наступне фото">›</button><span class="gcount">1 / 2</span></div>
+    <div class="body">
+      <div class="top"><span class="rank">8</span><h2>Гра з ім’ям: «Де Кая?»</h2><span class="badge">Саме зараз</span></div>
+      <div class="row"><span class="age">4–9 міс.</span><span class="skill">слухова увага, впізнавання себе</span></div>
+      <p class="note1">Кличте Каю на ім’я з різних боків кімнати й радійте, коли вона поверне голову.</p>
+      <div class="hl good">Вже у 4,5 міс. діти довше слухають своє ім’я, ніж схожі імена (Mandel 1995). У 9 міс. CDC чекає реакції на ім’я.</div>
+      <div class="chips"><a class="chip vid" href="https://www.youtube.com/watch?v=dPvQazyoRS0">CDC: 4 міс. — повертається на голос</a><a class="chip vid" href="https://www.youtube.com/watch?v=2zEEh4hM7dw">CDC: 9 міс. — дивиться, коли кличуть</a></div>
+    </div>
+    <button type="button" class="toggle" aria-expanded="false" aria-controls="c8-more">Деталі<span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+    <div class="more" id="c8-more" hidden>
+      <h3>Як робити</h3><ol class="how"><li>Кая лежить на спині; станьте збоку поза полем зору: «Ка-я! Де Кая?»</li><li>Повернула голову — усмішка, «Ось ти!» Це нагорода.</li><li>Міняйте сторони і людей: мама, тато, бабуся.</li><li>Не кличте весь день без причини — тоді ім’я стає фоном. 3–4 рази за гру досить.</li></ol>
+      <h3>Чому це працює</h3><p>Mandel, Jusczyk, Pisoni (Psychological Science 1995): 4,5-місячні немовлята довше слухали своє ім’я, ніж інші з тим самим наголосом, — це одне з перших «впізнаних» слів. Повертати голову на голос — віха CDC у 4 міс., реагувати на ім’я — у 9 міс.</p>
+      <h3>Джерела</h3><div class="chips"><a class="chip" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4140581/">Mandel 1995, Psychol Sci</a><a class="chip" href="https://www.cdc.gov/act-early/milestones/4-months.html">CDC: віхи 4 міс.</a><a class="chip" href="https://www.cdc.gov/act-early/milestones/9-months.html">CDC: віхи 9 міс.</a></div>
+    </div>
+  </article>
+  <article class="card" id="c9">
+    <div class="gallery" data-gal><div class="track" tabindex="0" aria-label="Кадри з відео, гортай"><figure class="slide"><a href="https://www.youtube.com/watch?v=77z5pGIoNaI"><img src="https://i.ytimg.com/vi/77z5pGIoNaI/maxresdefault.jpg" alt="Siren Films: кошик скарбів" loading="lazy"><span class="play">▶</span></a><figcaption>Siren Films: кошик скарбів</figcaption></figure><figure class="slide"><a href="https://www.youtube.com/watch?v=-mQn0vYTDgo"><img src="https://i.ytimg.com/vi/-mQn0vYTDgo/hqdefault.jpg" alt="Pathways: сенсорна гра 4–6 міс." loading="lazy"><span class="play">▶</span></a><figcaption>Pathways: сенсорна гра 4–6 міс.</figcaption></figure></div><button type="button" class="gbtn prev" data-prev aria-label="Попереднє фото">‹</button><button type="button" class="gbtn next" data-next aria-label="Наступне фото">›</button><span class="gcount">1 / 2</span></div>
+    <div class="body">
+      <div class="top"><span class="rank">9</span><h2>«Кошик скарбів»: безпечні предмети з дому</h2><span class="badge lowb">Скоро</span></div>
+      <div class="row"><span class="age">5–12 міс.</span><span class="skill">дослідження, порівняння, зосередження</span></div>
+      <p class="note1">Невеликий кошик із 4–6 різними безпечними предметами: дерев’яна ложка, металева мисочка, м’ячик з текстурою, кришка.</p>
+      <div class="hl good">CDC: у 6 міс. дитина «тягне речі в рот, щоб їх дослідити». AAP: ложки, чашки й кришки — «нескінченно цікаві» й дешеві.</div>
+      <div class="chips"><a class="chip vid" href="https://www.youtube.com/watch?v=77z5pGIoNaI">Siren Films: кошик скарбів (1,5 хв)</a><a class="chip vid" href="https://www.youtube.com/watch?v=-mQn0vYTDgo">Pathways: сенсорна гра 4–6 міс.</a></div>
+    </div>
+    <button type="button" class="toggle" aria-expanded="false" aria-controls="c9-more">Деталі<span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+    <div class="more" id="c9-more" hidden>
+      <h3>Як робити</h3><ol class="how"><li>Почніть з 1–2 предметів у руці, поки Кая не сидить; кошик — коли сидить з підтримкою (~6 міс.).</li><li>Різне: важке й легке, холодне й тепле, гладке й шорстке, тихе й дзвінке.</li><li>Не підказуйте, а називайте: «Холодна ложка. Дзень — металева!»</li><li>Міняйте 1–2 предмети раз на кілька днів — новизна тримає увагу.</li><li>Все, що пролазить у втулку від туалетного паперу, — небезпечне (можна вдавитись). Тільки під наглядом.</li></ol>
+      <h3>Чому це працює</h3><p>AAP HealthyChildren (4–7 міс.) радить побутові речі — ложки, небиткі чашки, кришки, коробки — для вивчення причини й наслідку. CDC: у 6 міс. дослідження предметів ротом і руками — нормальна когнітивна віха. Порівнюючи властивості, дитина вчиться групувати речі.</p>
+      <h3>Джерела</h3><div class="chips"><a class="chip" href="https://www.cdc.gov/act-early/milestones/6-months.html">CDC: віхи 6 міс.</a><a class="chip" href="https://www.healthychildren.org/English/ages-stages/baby/Pages/Cognitive-Development-4-to-7-Months.aspx">AAP HealthyChildren: 4–7 міс.</a></div>
+    </div>
+  </article>
+  <article class="card" id="c10">
+    <div class="gallery" data-gal><div class="track" tabindex="0" aria-label="Кадри з відео, гортай"><figure class="slide"><a href="https://www.youtube.com/watch?v=Oi2C5I0dRMs"><img src="https://i.ytimg.com/vi/Oi2C5I0dRMs/sddefault.jpg" alt="CDC: 9 міс. шукає впалу річ" loading="lazy"><span class="play">▶</span></a><figcaption>CDC: 9 міс. шукає впалу річ</figcaption></figure><figure class="slide"><a href="https://www.youtube.com/watch?v=0kjoCFXP4gs"><img src="https://i.ytimg.com/vi/0kjoCFXP4gs/sddefault.jpg" alt="CDC: 1 рік шукає під ковдрою" loading="lazy"><span class="play">▶</span></a><figcaption>CDC: 1 рік шукає під ковдрою</figcaption></figure></div><button type="button" class="gbtn prev" data-prev aria-label="Попереднє фото">‹</button><button type="button" class="gbtn next" data-next aria-label="Наступне фото">›</button><span class="gcount">1 / 2</span></div>
+    <div class="body">
+      <div class="top"><span class="rank">10</span><h2>«Де іграшка?»: напівсховали → сховали</h2><span class="badge lowb">Скоро</span></div>
+      <div class="row"><span class="age">6–12 міс.</span><span class="skill">постійність об’єкта, робоча пам’ять</span></div>
+      <p class="note1">Накрийте улюблену іграшку пелюшкою так, щоб стирчав краєчок, і запитайте «Де зайчик?»</p>
+      <div class="hl good">Вже у 3,5–4,5 міс. діти «знають», що схована річ існує (Baillargeon 1987); шукати її руками вони почнуть ~8–12 міс.</div>
+      <div class="chips"><a class="chip vid" href="https://www.youtube.com/watch?v=Oi2C5I0dRMs">CDC: 9 міс. — шукає те, що впало</a><a class="chip vid" href="https://www.youtube.com/watch?v=0kjoCFXP4gs">CDC: 1 рік — шукає під ковдрою</a></div>
+    </div>
+    <button type="button" class="toggle" aria-expanded="false" aria-controls="c10-more">Деталі<span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+    <div class="more" id="c10-more" hidden>
+      <h3>Як робити</h3><ol class="how"><li>~6 міс.: накрийте іграшку наполовину, хай видно вушко; вона тягне пелюшку — «Ось він!»</li><li>~8–9 міс.: ховайте повністю, поки вона дивиться.</li><li>~10–12 міс.: дві пелюшки — сховайте під одну, потім перекладіть під іншу на її очах.</li><li>Почніть зі звукової іграшки — звук підказує, де вона.</li></ol>
+      <h3>Чому це працює</h3><p>Baillargeon (Developmental Psychology 1987): 3,5–4,5-місячні діти довше дивляться на «неможливу» сцену, де екран «проходить крізь» схований за ним предмет, — вони вже пам’ятають, що він там. CDC: у 9 міс. дитина шукає те, що впало з поля зору, а в 1 рік — іграшку під ковдрою; гру «сховати іграшку під тканину» CDC радить з 9 міс.</p>
+      <h3>Джерела</h3><div class="chips"><a class="chip" href="https://doi.org/10.1037/0012-1649.23.5.655">Baillargeon 1987, Dev Psychol</a><a class="chip" href="https://www.cdc.gov/act-early/milestones/9-months.html">CDC: віхи 9 міс.</a><a class="chip" href="https://www.healthychildren.org/English/ages-stages/baby/Pages/Cognitive-Development-8-to-12-Months.aspx">AAP HealthyChildren: 8–12 міс.</a></div>
+    </div>
+  </article>
+  <article class="card" id="c11">
+    <div class="gallery" data-gal><div class="track" tabindex="0" aria-label="Кадри з відео, гортай"><figure class="slide"><a href="https://www.youtube.com/watch?v=gsuga2JCcYc"><img src="https://i.ytimg.com/vi/gsuga2JCcYc/maxresdefault.jpg" alt="UPF: стеження за поглядом" loading="lazy"><span class="play">▶</span></a><figcaption>UPF: стеження за поглядом</figcaption></figure><figure class="slide"><a href="https://www.youtube.com/watch?v=1Aea8BH-PCs"><img src="https://i.ytimg.com/vi/1Aea8BH-PCs/maxresdefault.jpg" alt="UPF: спільна увага" loading="lazy"><span class="play">▶</span></a><figcaption>UPF: спільна увага</figcaption></figure></div><button type="button" class="gbtn prev" data-prev aria-label="Попереднє фото">‹</button><button type="button" class="gbtn next" data-next aria-label="Наступне фото">›</button><span class="gcount">1 / 2</span></div>
+    <div class="body">
+      <div class="top"><span class="rank">11</span><h2>Спільна увага: дивимось туди ж і називаємо</h2><span class="badge lowb">Скоро</span></div>
+      <div class="row"><span class="age">6–18 міс.</span><span class="skill">соціальне мислення, словник</span></div>
+      <p class="note1">Помітьте, куди дивиться Кая, подивіться туди теж і назвіть: «Ти бачиш котика? Котик!»</p>
+      <div class="hl good">Діти, які у 10–11 міс. краще стежать за поглядом дорослого, у 18 міс. мають більший словник (Brooks &amp; Meltzoff 2005).</div>
+      <div class="chips"><a class="chip vid" href="https://www.youtube.com/watch?v=gsuga2JCcYc">Наукова лабораторія UPF: стеження за поглядом</a><a class="chip vid" href="https://www.youtube.com/watch?v=1Aea8BH-PCs">UPF: спільна увага (2,5 хв)</a></div>
+    </div>
+    <button type="button" class="toggle" aria-expanded="false" aria-controls="c11-more">Деталі<span class="chev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+    <div class="more" id="c11-more" hidden>
+      <h3>Як робити</h3><ol class="how"><li>Вже зараз: ідіть за її поглядом і називайте те, що вона роздивляється (CDC 6 міс.).</li><li>На прогулянці: «Дивись — собачка! Машина їде!» — показуйте пальцем.</li><li>~9 міс.: подивіться на предмет, перш ніж назвати, — вона вчиться стежити за вашими очима.</li><li>~12 міс.: вона сама показує пальцем — назвіть те, що показала.</li></ol>
+      <h3>Чому це працює</h3><p>Brooks & Meltzoff (Developmental Science 2005): діти, які в 10–11 міс. стежили за поглядом дорослого й довше дивились туди ж, у 18 міс. знали більше слів. CDC (6 міс.): «показуйте те, на що дивиться дитина, і говоріть про це».</p>
+      <h3>Джерела</h3><div class="chips"><a class="chip" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3640988/">Brooks &amp; Meltzoff 2005, Dev Sci</a><a class="chip" href="https://www.cdc.gov/act-early/milestones/6-months.html">CDC: віхи 6 міс.</a></div>
+    </div>
+  </article>
+  <footer>Зібрано 13.11.2026 для Каї (нар. ~14.07.2026, 4 міс. — 14.11.2026). Джерела: AAP / HealthyChildren.org, CDC «Learn the Signs. Act Early», Harvard Center on the Developing Child, NHS, ВООЗ та рецензовані статті (PubMed / PMC / DOI) — посилання в кожній картці під «Деталі». Відео: офіційні канали CDC, Harvard, Pathways.org (некомерційна організація з педіатрами-консультантами), TED-Ed, Siren Films, лабораторія UPF «Before First Words»; одне українське відео з потішкою. Картинки — кадри з цих відео (клік відкриває відео). Вікові межі — орієнтири: кожна дитина розвивається у своєму темпі. Не медична порада.</footer>
+</div>
+<script>(function () {
+  function setOpen(btn, open) {
+    var more = document.getElementById(btn.getAttribute('aria-controls'));
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    more.hidden = !open;
+  }
+  document.querySelectorAll('.toggle').forEach(function (btn) {
+    btn.addEventListener('click', function () { setOpen(btn, btn.getAttribute('aria-expanded') !== 'true'); });
+  });
+  var all = document.querySelector('[data-all]');
+  if (all) all.addEventListener('click', function () {
+    var btns = document.querySelectorAll('.toggle');
+    var open = [].some.call(btns, function (b) { return b.getAttribute('aria-expanded') !== 'true'; });
+    btns.forEach(function (b) { setOpen(b, open); });
+    all.setAttribute('aria-pressed', open ? 'true' : 'false'); all.setAttribute('aria-label', open ? 'Згорнути всі картки' : 'Розгорнути всі картки'); all.title = open ? 'Згорнути всі' : 'Розгорнути всі';
+  });
+  document.querySelectorAll('[data-gal]').forEach(function (g) {
+    var track = g.querySelector('.track'), slides = track.children, prev = g.querySelector('[data-prev]'), next = g.querySelector('[data-next]'), count = g.querySelector('.gcount'), cur = 0;
+    function show(i) { cur = i; count.textContent = (i + 1) + ' / ' + slides.length; prev.disabled = i === 0; next.disabled = i === slides.length - 1; }
+    // Snap index from scroll position, so a finger swipe updates the counter too.
+    function fromScroll() { var best = 0, d = Infinity; for (var i = 0; i < slides.length; i++) { var x = Math.abs(slides[i].offsetLeft - track.scrollLeft); if (x < d) { d = x; best = i; } } show(best); }
+    function go(step) { var i = Math.max(0, Math.min(slides.length - 1, cur + step)); show(i); track.scrollTo({ left: slides[i].offsetLeft, behavior: 'smooth' }); }
+    prev.addEventListener('click', function () { go(-1); });
+    next.addEventListener('click', function () { go(1); });
+    track.addEventListener('keydown', function (e) { if (e.key === 'ArrowRight') { e.preventDefault(); go(1); } if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); } });
+    var t; track.addEventListener('scroll', function () { clearTimeout(t); t = setTimeout(fromScroll, 120); }, { passive: true });
+    show(0);
+  });
+  window.addEventListener('beforeprint', function () { document.querySelectorAll('.more').forEach(function (m) { m.hidden = false; }); });
+})();
+</script>
+</body>
+</html>
