@@ -21,6 +21,7 @@ th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;verti
 th{color:var(--muted);font-weight:600;font-size:.82rem}
 tr:last-child td{border-bottom:0}
 table.fit{min-width:0}
+table.fit .nw{white-space:nowrap}
 .badge{display:inline-block;font-size:.75rem;font-weight:700;border-radius:6px;padding:1px 7px;margin:0 4px 2px 0;color:#fff}
 .b-pick{background:var(--pick)} .b-fast{background:var(--fast)} .b-near{background:#7c5cd6}
 .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:12px 0}
@@ -141,10 +142,10 @@ footer{color:var(--muted);font-size:.85rem;margin-top:30px;border-top:1px solid 
 <div class="card">
   <h3>Хто продає (Amazon.pl, 20.11, ~21:25–21:30)</h3>
   <div class="tbl"><table class="fit">
-  <tr><th>Колір</th><th>ASIN</th><th>Ціна</th><th>Продає</th><th>Відправляє</th></tr>
-  <tr><td>Sugar Plum</td><td><a href="https://www.amazon.pl/dp/B0HN7RW1FD">B0HN7RW1FD</a></td><td>213,95 zł</td><td><b>Loop Earplugs PL</b> ✅ (той самий акаунт виклав офіційну відеоінструкцію Loop на картці)</td><td>Amazon ✅</td></tr>
-  <tr><td>Czarny (Black)</td><td><a href="https://www.amazon.pl/dp/B0H3V1J9MD">B0H3V1J9MD</a></td><td>170,95 zł (−20%)</td><td><b>Loop Earplugs PL</b> ✅</td><td>Amazon ✅</td></tr>
-  <tr><td>Turkusowy (Teal)</td><td><a href="https://www.amazon.pl/dp/B0HF7XYHF9">B0HF7XYHF9</a></td><td>170,95 zł (−20%)</td><td>не побачив ⚠️ — ймовірно, Loop Earplugs PL</td><td>не побачив</td></tr>
+  <tr><th>Колір · ASIN</th><th>Ціна</th><th>Продає · відправляє</th></tr>
+  <tr><td>Sugar Plum<br><a href="https://www.amazon.pl/dp/B0HN7RW1FD">B0HN7RW1FD</a></td><td class="nw">213,95 zł</td><td><b>Loop Earplugs PL</b> ✅ · Amazon ✅<br><small>той самий акаунт виклав на картці офіційну відеоінструкцію Loop</small></td></tr>
+  <tr><td>Czarny (Black)<br><a href="https://www.amazon.pl/dp/B0H3V1J9MD">B0H3V1J9MD</a></td><td class="nw">170,95 zł<br>(−20%)</td><td><b>Loop Earplugs PL</b> ✅ · Amazon ✅</td></tr>
+  <tr><td>Turkusowy (Teal)<br><a href="https://www.amazon.pl/dp/B0HF7XYHF9">B0HF7XYHF9</a></td><td class="nw">170,95 zł<br>(−20%)</td><td>не побачив ⚠️<br><small>ймовірно, Loop Earplugs PL — перевір перед покупкою</small></td></tr>
   </table></div>
   <p style="font-size:.85rem;color:var(--muted)">Інші товари Loop на Amazon.pl теж продає «Loop Earplugs PL» з відправкою від Amazon (так видно в постах на pepper.pl).</p>
 </div>
