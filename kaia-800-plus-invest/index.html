@@ -128,6 +128,7 @@
     a { text-decoration: none; }
   }
 
+  .wrap > * { min-width: 0; } .wrap { grid-template-columns: minmax(0, 1fr); }
   .tbl { overflow-x: auto; -webkit-overflow-scrolling: touch; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; }
   .tbl table { border-collapse: collapse; width: 100%; font-size: .84rem; min-width: 640px; }
   .tbl th, .tbl td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
@@ -153,6 +154,7 @@
   .why { display: block; margin-top: 2px; font-size: .9em; }
 </style>
 <style>
+  .wrap > * { min-width: 0; } .wrap { grid-template-columns: minmax(0, 1fr); }
   .tbl { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; }
   .tbl table { border-collapse: collapse; width: 100%; font-size: .86rem; min-width: 640px; }
   .tbl th, .tbl td { padding: 7px 9px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
