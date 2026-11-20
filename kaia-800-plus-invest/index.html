@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>800+ для Каї: куди вкладати</title>
+<style>  :root { --bg:#f2f6ef; --surface:#fff; --ink:#1d2421; --muted:#5b665f; --line:#dbe4d8; --accent:#5d8a4e; --amber:#a86f12; --good:#1f7a4d; --good-soft:#e2f2e7; --bad:#b3261e; --bad-soft:#fcebe9; --warn:#8f5800; --warn-soft:#fcf0d9; --link:#0b5bb7; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { color-scheme: dark; --bg:#141815; --surface:#1c211d; --ink:#e7ece8; --muted:#9faba3; --line:#2d3530; --accent:#8fbf7d; --amber:#e8b04a; --good:#62cf95; --good-soft:#15291f; --bad:#ff8a80; --bad-soft:#3a1714; --warn:#f0b03c; --warn-soft:#2f2410; --link:#7db4ff; } }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { background: var(--bg); color: var(--ink); font: 15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; margin: 0; }
+  img { max-width: 100%; }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 20px 16px 40px; display: grid; gap: 12px; border-top: 4px solid var(--accent); }
+  .meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 12px; }
+  .eyebrow { font-size: .72rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); font-weight: 600; }
+  .upd { font-size: .8rem; color: var(--accent); font-weight: 600; }
+  h1 { font-size: 1.6rem; line-height: 1.15; margin: 0; }
+  .note { background: var(--warn-soft); border-left: 3px solid var(--warn); padding: 8px 12px; border-radius: 4px; font-size: .9rem; }
+  .note b { color: var(--warn); }
+    button { font: inherit; cursor: pointer; }
+  .mright { display: inline-flex; align-items: center; gap: 8px; }
+  .allbtn { display: inline-grid; place-items: center; width: 30px; height: 30px; padding: 0; background: var(--surface); color: var(--link); border: 1px solid var(--line); border-radius: 8px; }
+  .allbtn svg { width: 18px; height: 18px; transition: transform .2s; }
+  .allbtn[aria-pressed="true"] svg { transform: rotate(180deg); }
+  .ext { display: inline-grid; place-items: center; width: 30px; height: 30px; margin: -6px -4px; color: var(--link); border-radius: 8px; align-self: center; }
+  .ext svg { width: 17px; height: 17px; }
+  .ext:hover { background: var(--good-soft); }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 6px 12px; align-items: start; }
+  .card.pick { border-color: var(--good); box-shadow: 0 0 0 1px var(--good); }
+  .body { display: grid; gap: 5px; min-width: 0; overflow-wrap: anywhere; }
+  .top { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+  .rank { font-weight: 800; color: var(--amber); font-size: 1.25rem; }
+  h2 { font-size: 1.1rem; margin: 0; }
+  .badge { background: var(--good-soft); color: var(--good); border-radius: 999px; padding: 1px 9px; font-size: .75rem; font-weight: 700; }
+  .badge.lowb { background: var(--warn-soft); color: var(--warn); }
+  .row { display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: center; font-size: .9rem; }
+  .price { font-weight: 700; font-size: 1rem; }
+  .rate { display: inline-flex; gap: 6px; align-items: center; padding: 1px 8px; border-radius: 6px; font-size: .85rem; }
+  .rate.good { background: var(--good-soft); } .rate.mid { background: var(--warn-soft); }
+  .stars { position: relative; display: inline-block; color: #d6d0bf; letter-spacing: 1px; line-height: 1; white-space: nowrap; flex-shrink: 0; } .rate b { white-space: nowrap; flex-shrink: 0; }
+  .s-fill { position: absolute; left: 0; top: 0; overflow: hidden; white-space: nowrap; color: #e0a100; }
+  .note1 { margin: 0; font-size: .88rem; color: var(--muted); }
+  .hl { font-size: .86rem; font-weight: 600; border-radius: 6px; padding: 3px 8px; }
+  .hl.bad { color: var(--bad); background: var(--bad-soft); } .hl.bad::before { content: "▼ "; }
+  .hl.good { color: var(--good); background: var(--good-soft); } .hl.good::before { content: "▲ "; }
+  .chips { display: flex; flex-wrap: wrap; gap: 4px; }
+  .chip { border: 1px solid var(--line); border-radius: 999px; padding: 1px 8px 1px 5px; font-size: .8rem; white-space: nowrap; color: var(--ink); text-decoration: none; background: var(--surface); }
+  .chip::after { content: " ↗"; color: var(--link); font-size: .75em; }
+  .dot { display: inline-block; width: .75em; height: .75em; border-radius: 50%; margin-right: 4px; vertical-align: -1px; border: 1px solid #0003; }
+  .go { font-weight: 600; font-size: .85rem; color: var(--link); text-decoration: none; }
+  .toggle { grid-column: 1 / -1; background: transparent; border: 0; color: var(--link); font-weight: 600; font-size: .85rem; padding: 6px 0 0; text-align: left; min-height: 32px; }
+  .toggle { display: inline-flex; align-items: center; gap: 4px; justify-self: start; }
+  .chev { display: inline-grid; place-items: center; }
+  .chev svg { width: 22px; height: 22px; transition: transform .2s; }
+  .toggle[aria-expanded="true"] .chev svg { transform: rotate(180deg); }
+  .more { grid-column: 1 / -1; display: grid; gap: 8px; font-size: .88rem; min-width: 0; }
+  .more[hidden] { display: none; }
+  .fmt { margin: 0; }
+  .pc { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 16px; }
+  .pc h3 { font-size: .75rem; text-transform: uppercase; letter-spacing: .08em; margin: 0 0 2px; }
+  .pc .plus { color: var(--good); } .pc .minus { color: var(--bad); }
+  .pc ul { margin: 0; padding-left: 1.1em; }
+  .rev { margin: 0; display: grid; gap: 4px; }
+  .rev div { display: grid; grid-template-columns: 8.5em 1fr; gap: 8px; }
+  .rev dt { font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); font-weight: 700; padding-top: .15em; }
+  .rev dd { margin: 0; }
+  .gallery { position: relative; width: 100%; min-width: 0; }
+  .track { position: relative; display: flex; gap: 0; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; scrollbar-width: none; border-radius: 8px; }
+  .track::-webkit-scrollbar { display: none; }
+  .slide { flex: 0 0 100%; margin: 0; scroll-snap-align: start; }
+  .slide img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px; border: 1px solid var(--line); display: block; }
+  .slide { position: relative; }
+  .slide figcaption { position: absolute; left: 5px; bottom: 5px; font-size: .68rem; line-height: 1.3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #fff; background: #0008; padding: 2px 8px; border-radius: 999px; max-width: calc(100% - 16px); }
+  .gbtn { position: absolute; top: 50%; transform: translateY(-50%); width: 34px; height: 34px; border-radius: 50%; border: 0; background: rgba(255,255,255,.14); color: #fff; font-size: 1.6rem; font-weight: 300; line-height: 1; box-shadow: none; text-shadow: 0 1px 3px rgba(0,0,0,.65), 0 0 1px rgba(0,0,0,.5); border: 1px solid rgba(255,255,255,.35); -webkit-backdrop-filter: none; backdrop-filter: none; display: grid; place-items: center; padding: 0 0 3px; }
+  .gbtn.prev { left: 4px; } .gbtn.next { right: 4px; }
+  @media (hover: hover) { .gbtn:hover { background: rgba(255,255,255,.28); } }
+  .gbtn:disabled { opacity: 0; pointer-events: none; }
+  .gcount { position: absolute; top: 5px; right: 5px; font-size: .68rem; line-height: 1.3; color: #fff; background: #0008; padding: 2px 8px; border-radius: 999px; }
+  button:focus-visible, a:focus-visible, .track:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+  footer { color: var(--muted); font-size: .78rem; }
+  @media screen and (max-width: 640px) {
+    body { font-size: 16px; }
+    .wrap { padding: 14px 16px 32px; gap: 14px; }
+    h1 { font-size: 1.4rem; }
+    .card { grid-template-columns: minmax(0, 1fr); padding: 14px; }
+    .slide img { aspect-ratio: 4 / 3; }
+    .gbtn { width: 44px; height: 44px; font-size: 1.7rem; }
+    .gbtn.prev { left: 8px; } .gbtn.next { right: 8px; }
+    .gcount { top: 8px; right: 8px; font-size: .75rem; }
+    .slide figcaption { left: 8px; bottom: 8px; font-size: .78rem; }
+    h2 { font-size: 1.2rem; }
+    .row, .note1, .hl, .more { font-size: .95rem; }
+    .chips { gap: 8px; }
+    .chip { display: inline-flex; align-items: center; min-height: 44px; padding: 6px 12px 6px 10px; font-size: .9rem; white-space: normal; }
+    .toggle { min-height: 44px; font-size: 1rem; }
+    .allbtn, .ext { width: 44px; height: 44px; }
+    .ext { margin: -10px -8px; }
+    .pc { grid-template-columns: 1fr; }
+    .rev div { grid-template-columns: 1fr; gap: 0; }
+    .gallery { max-width: none; }
+    footer { font-size: .85rem; }
+  }
+  @media print {
+    :root, :root[data-theme] { color-scheme: light; --bg:#fff; --surface:#fff; --ink:#1d2421; --muted:#5b665f; --line:#dbe4d8; --accent:#5d8a4e; --good:#1f7a4d; --good-soft:#e2f2e7; --bad:#b3261e; --bad-soft:#fcebe9; --warn:#8f5800; --warn-soft:#fcf0d9; --link:#0b5bb7; }
+    @page { size: A4; margin: 9mm; }
+    body { font-size: 8.8pt; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .wrap { display: block; max-width: none; padding: 0; border: 0; }
+    .wrap > * { margin-bottom: 6px; }
+    .allbtn, .toggle, .gbtn, .gcount { display: none !important; }
+    .ext { width: 16px; height: 16px; margin: 0; } .ext svg { width: 11px; height: 11px; }
+    .gallery, .slide { position: static; }
+    .card { break-inside: avoid; box-shadow: none; grid-template-columns: 80px 1fr; padding: 7px 9px; gap: 3px 10px; }
+    .card.pick { border-width: 2px; box-shadow: none; }
+    .gallery { width: 80px; }
+    .slide img { width: 80px; height: 80px; aspect-ratio: auto; }
+    .more, .more[hidden] { display: grid !important; gap: 3px; font-size: 8.5pt; }
+    .more, .more[hidden] { grid-template-columns: 1fr 1fr; column-gap: 12px; }
+    .fmt { grid-column: 1 / -1; }
+    .pc { grid-template-columns: 1fr; gap: 2px; }
+    .rev div { grid-template-columns: 1fr; gap: 0; }
+    .rev dt { font-size: 7pt; }
+    .gallery { max-width: none; }
+    .track { overflow: hidden; }
+    .slide { flex: 0 0 100%; }
+    .slide ~ .slide { display: none; }
+    .slide figcaption { display: none; }
+    .slide img { border-radius: 3px; }
+    a { text-decoration: none; }
+  }
+
+  .tbl { overflow-x: auto; -webkit-overflow-scrolling: touch; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; }
+  .tbl table { border-collapse: collapse; width: 100%; font-size: .84rem; min-width: 640px; }
+  .tbl th, .tbl td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .tbl th { font-size: .7rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+  .tbl tr.pick td { background: var(--good-soft); }
+  .tbl tr:last-child td { border-bottom: 0; }
+  .note.info { background: var(--good-soft); border-left-color: var(--good); }
+  .note.info b { color: var(--good); }
+  .facts { margin: 0; padding-left: 1.1em; }
+  .facts li { margin: 2px 0; }
+  .uv { color: var(--warn); font-weight: 600; font-size: .8em; }
+  .rate.none { background: var(--warn-soft); color: var(--warn); }
+
+  .q { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; }
+  .q li { border-left: 3px solid var(--line); padding: 2px 0 2px 8px; }
+  .q li.p { border-color: var(--good); } .q li.m { border-color: var(--warn); } .q li.n { border-color: var(--bad); }
+  .q .src { color: var(--muted); font-size: .8rem; }
+  .facts { margin: 0; padding-left: 1.1em; }
+  .tbl table { min-width: 560px; }
+  .tbl td.incl { min-width: 260px; font-size: .8rem; }
+  .lnk { display: inline-block; font-size: .78em; font-weight: 700; color: var(--link); background: var(--surface); border: 1px solid var(--link); border-radius: 6px; padding: 0 6px; white-space: nowrap; }
+  .score { display: inline-block; font-weight: 800; font-size: .85rem; color: var(--good); background: var(--good-soft); border-radius: 6px; padding: 0 6px; white-space: nowrap; }
+  .why { display: block; margin-top: 2px; font-size: .9em; }
+</style>
+<style>
+  .tbl { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; }
+  .tbl table { border-collapse: collapse; width: 100%; font-size: .86rem; min-width: 640px; }
+  .tbl th, .tbl td { padding: 7px 9px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+  .tbl th { font-size: .74rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+  .tbl tr.pickrow td { background: var(--good-soft); }
+  .tbl td.num, .tbl th.num { text-align: right; white-space: nowrap; }
+  .sec { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; }
+  .sec h2 { margin: 0 0 6px; }
+  .sec ul { margin: 4px 0; padding-left: 20px; } .sec li { margin: 3px 0; }
+  .opt { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; display: grid; gap: 6px; }
+  .opt.pick { border-color: var(--good); box-shadow: 0 0 0 1px var(--good); }
+  .opt ul { margin: 0; padding-left: 20px; font-size: .9rem; } .opt li { margin: 2px 0; }
+  .plan { background: var(--good-soft); border-left: 4px solid var(--good); border-radius: 6px; padding: 10px 14px; }
+  .plan h2 { margin: 0 0 4px; color: var(--good); }
+  .plan ol { margin: 4px 0; padding-left: 22px; } .plan li { margin: 4px 0; }
+  .est { font-size: .8rem; color: var(--warn); font-weight: 600; }
+  details > summary { cursor: pointer; color: var(--link); font-weight: 600; font-size: .88rem; }
+  .links { font-size: .85rem; display: flex; flex-wrap: wrap; gap: 4px 12px; }
+  .links a { color: var(--link); }
+  .sub { font-size: .88rem; color: var(--muted); margin: 0; }
+  footer { font-size: .8rem; color: var(--muted); border-top: 1px solid var(--line); padding-top: 10px; }
+  @media (max-width: 600px) { h1 { font-size: 1.3rem; } }
+</style>
+</head>
+<body><div class="wrap">
+<div class="meta"><span class="eyebrow">Scout · 800+ для Каї · інвестиції на 15–18 років</span><span class="upd">Дослідження: 20.11.2026</span></div>
+<h1>Куди вкладати 800+ Каї: облігації ROD, глобальний ETF, IKE — порівняння і план</h1>
+<p class="note1">Для Вови й Юлі (податкові резиденти Польщі, Краків). 800 zł на місяць, горизонт 15–18 років, мета — надійно й довгостроково. Усі ставки й тарифи звірені з офіційними сторінками станом на 20.11.2026, де не сказано інакше.</p>
+
+<div class="note"><b>Про «7–10% на рік»:</b> для акцій світу в злотих за 20 років (2005–2024) це правда в середньому: MSCI World ≈ 10,3%/рік, ACWI ≈ 9,7%, S&amp;P 500 ≈ 12,0%. Але це <i>середнє</i>, не стабільна дохідність: у 2008 світ упав на −57% у доларах (≈ −37% у злотих), а гроші, вкладені в кінці 1999, у злотих не заробили нічого аж до 2012 — 13 років. «Стабільних 7–10%» не дає жоден продукт. Стабільно (без падінь) дають тільки облігації, прив'язані до інфляції, — приблизно інфляція + 2–2,5%.</div>
+
+<div class="plan">
+<h2>✅ Мій вибір: 50/50 — ROD + глобальний ETF в IKE</h2>
+<ol>
+<li><b>400 zł/міс → облігації ROD</b> (12-річні сімейні, 4 облігації по 100 zł щомісяця) на ім'я того з батьків, хто отримує 800+. Зараз 5,60% у 1-й рік, далі інфляція + 2,50%, без ризику падіння. Купувати через PKO BP / Pekao (obligacjeskarbowe.pl).</li>
+<li><b>400 zł/міс → один глобальний UCITS ETF з накопиченням</b> (VWCE — весь світ, або IWDA — розвинені ринки) на <b>IKE одного з батьків</b>. Найдешевше — <b>mBank eMakler IKE</b> (0 zł комісії на ETF, обмін валют 0,1%); найзручніше на автоматі — <b>XTB IKE</b> з планом і дробовими частками (0% комісії, але 0,5% на обмін валют).</li>
+<li><b>За 4–5 років до потрібної дати</b> (Каї ~13–14) поступово переводити ETF-частину в безпечне: EDO/COI в тому ж IKE або облігації — щоб обвал у останній рік не з'їв третину.</li>
+<li>IKE — це пенсійний рахунок батька/матері, не дитини. Якщо гроші знадобляться Каї раніше 60 — забрати з IKE і заплатити звичайні 19% з прибутку (як на звичайному рахунку, нічого не втрачаєте). Якщо не знадобляться — лишаються вашою пенсією без податку.</li>
+</ol>
+<p class="sub">Чому так: ROD дає найвищу безризикову маржу в Польщі (на 0,5 п.п. вище за EDO), але тільки для 800+; ETF дає шанс на 7–9%, але з падіннями. Половина на половину — орієнтовно ≈ 260–355 тис. zł за 18 років (див. таблицю), і в найгіршому разі половина грошей не падає взагалі.</p>
+</div>
+
+<div class="sec">
+<h2>Порівняння варіантів</h2>
+<div class="tbl"><table>
+<thead><tr><th>Варіант</th><th>Очікувана дохідність</th><th>Ризик падіння</th><th>Податок</th><th>Витрати</th><th>На чиє ім'я</th></tr></thead>
+<tbody>
+<tr class="pickrow"><td><b>ROD (12 р.)</b> ✅</td><td>5,60% 1-й рік, далі CPI + 2,50%</td><td>Немає (номінал гарантує держава)</td><td>19% з відсотків при викупі</td><td>0 zł; дострокований викуп 3 zł/шт.</td><td>Отримувач 800+</td></tr>
+<tr><td><b>ROS (6 р.)</b></td><td>5,00% 1-й рік, далі CPI + 2,00%</td><td>Немає</td><td>19% при викупі</td><td>Дострок. 2 zł/шт.</td><td>Отримувач 800+</td></tr>
+<tr><td><b>EDO (10 р.) в IKE</b></td><td>5,35%, далі CPI + 2,00%</td><td>Немає</td><td>0% в IKE після 60; інакше 19%</td><td>3 zł/шт. дострок.</td><td>Будь-хто з батьків</td></tr>
+<tr class="pickrow"><td><b>ETF у mBank IKE</b> ✅</td><td>Історично 9–10%/рік у PLN за 20 р., але з роками мінус</td><td>Високий: −30…−40% бувало</td><td>0% після 60; 19% при ранньому виході</td><td>0 zł комісії, FX 0,1%, TER 0,14–0,20%</td><td>Один з батьків (IKE з 16+ і тільки з доходом)</td></tr>
+<tr><td><b>ETF у XTB (план, IKE або звичайний)</b></td><td>Те саме</td><td>Високий</td><td>IKE як вище; звичайний — 19%, PIT-8C дає XTB</td><td>0% комісії до 100k €/міс, FX 0,5%</td><td>Один з батьків</td></tr>
+<tr><td><b>Interactive Brokers</b></td><td>Те саме</td><td>Високий</td><td>19%, PIT-38 + PIT/ZG самі</td><td>≈ 1,25 € + мін. 2 $ на обмін ≈ 1,4% від 800 zł</td><td>Один з батьків</td></tr>
+<tr><td><b>Revolut (плани ETF)</b></td><td>Те саме</td><td>Високий</td><td>19%, PIT-38 + PIT/ZG самі</td><td>Плани без комісії; FX безкошт. до ліміту, далі 0,5%</td><td>Один з батьків</td></tr>
+<tr><td><b>Ощадний рахунок / депозит</b></td><td>≈ 3%/рік історично (≈ інфляція)</td><td>Немає</td><td>19%</td><td>0</td><td>Дитячий рахунок можливий</td></tr>
+</tbody></table></div>
+<p class="sub">CPI зараз: 3,5% р/р (жовтень 2026, GUS). Ставка NBP: 3,75%.</p>
+</div>
+
+<h2>Картки варіантів</h2>
+
+<div class="opt pick">
+<div class="top"><span class="rank">1</span><h2>Облігації ROD — 12-річні сімейні</h2><span class="badge">Мій вибір (половина)</span></div>
+<ul>
+<li>Серія ROD1138 (продаж 1–30.11.2026): <b>5,60%</b> у перший рік, з 2-го року <b>інфляція + 2,50%</b> (від'ємна інфляція рахується як 0). Відсотки капіталізуються щороку, виплата в кінці.</li>
+<li>Купує тільки <b>отримувач 800+</b> (той з батьків, на кого видане рішення ZUS). Ліміт = сума всіх отриманих виплат 800+ мінус уже куплені сімейні облігації. Можна щомісяця або разом пізніше.</li>
+<li>Достроковий викуп: 3 zł за облігацію (не більше нарахованих відсотків). Гроші з дострокового викупу назад у сімейні облігації вкласти не можна; обміну (zamiana) немає.</li>
+<li>Податок 19% з відсотків утримується при викупі. В IKE-Obligacje сімейні облігації, за даними оглядів, тримати не можна (на офіційній сторінці прямо не сказано).</li>
+</ul>
+<p class="hl good">Найвища безризикова маржа в Польщі, захист від інфляції, нуль роботи.</p>
+<p class="hl bad">12 років: якщо Каї зараз 4 міс., перші покупки закінчаться, коли їй ~12; далі гроші йдуть у EDO/COI. У 2022–23 такі облігації відставали від інфляції (індексація із запізненням).</p>
+<div class="links"><a href="https://www.obligacjeskarbowe.pl/oferta-obligacji/obligacje-12-letnie-rod/rod1138/">ROD1138 на obligacjeskarbowe.pl</a><a href="https://www.obligacjeskarbowe.pl/">Поточна пропозиція</a></div>
+</div>
+
+<div class="opt">
+<div class="top"><span class="rank">2</span><h2>Облігації ROS — 6-річні сімейні</h2></div>
+<ul>
+<li>ROS1132: <b>5,00%</b> у 1-й рік, далі <b>інфляція + 2,00%</b>, капіталізація щороку. Достроковий викуп 2 zł/шт. Ті самі правила покупки й ліміт, що в ROD (спільний ліміт).</li>
+<li>Примітка: 6-річна сімейна облігація зараз називається <b>ROS</b> (не SOK).</li>
+</ul>
+<p class="hl good">Коротший строк — гнучкіше.</p>
+<p class="hl bad">Маржа на 0,5 п.п. нижча за ROD — на 18 років це помітно. Має сенс хіба для частини, яка знадобиться через 6 років.</p>
+<div class="links"><a href="https://www.obligacjeskarbowe.pl/oferta-obligacji/obligacje-6-letnie-ros/ros1132/">ROS1132 на obligacjeskarbowe.pl</a></div>
+</div>
+
+<div class="opt pick">
+<div class="top"><span class="rank">3</span><h2>Глобальний ETF на IKE в mBank eMakler</h2><span class="badge">Мій вибір (половина)</span></div>
+<ul>
+<li>З 1.03.2026 <b>0 zł комісії</b> на понад 450 ETF на IKE/IKZE (акція стала постійною; виключені тільки «трейдерські» ETF — перевірте ISIN у таблиці mBank). Обмін валют — маржа 0,1%. Плата за зберігання на IKE немає.</li>
+<li>Мінус: немає дробових часток і авто-плану — купувати цілими паями руками раз на кілька місяців (пай VWCE коштує понад 100 €, тобто ≈ раз на 2–3 місяці при 400 zł).</li>
+<li>Ліміт IKE 2026: <b>28 260 zł</b> на особу (2027: 30 099 zł). 4 800 zł/рік на Каю легко влазить, решта ліміту лишається вам.</li>
+<li>IKE відкривається з 16 років і для неповнолітніх лише з доходу від umowa o pracę, тому для немовляти — тільки на ім'я одного з батьків.</li>
+</ul>
+<p class="hl good">Найдешевше в довгу: 0 комісії + 0,1% на валюту + податковий щит.</p>
+<p class="hl bad">Ручні покупки; ETF може впасти на 30–40% на кілька років.</p>
+<div class="links"><a href="https://www.mbank.pl/indywidualny/inwestycje-i-oszczednosci/emerytura/ike-emakler">mBank IKE eMakler</a><a href="https://www.bankier.pl/wiadomosc/ETF-y-na-IKE-i-IKZE-bez-prowizji-Promocja-mBank-zostaje-na-stale-9086247.html">Bankier: 0% назавжди</a><a href="https://www.gov.pl/web/rodzina/ike-limit-wplat">Ліміт IKE (gov.pl)</a></div>
+</div>
+
+<div class="opt">
+<div class="top"><span class="rank">4</span><h2>XTB — план інвестування (звичайний рахунок або IKE)</h2><span class="badge lowb">Найзручніше</span></div>
+<ul>
+<li>0% комісії на акції/ETF до 100 000 € обороту на місяць; обмін валют <b>0,5%</b> (0,8% у вихідні) — для ETF у EUR це ≈ 2 zł з 400 zł. Таблиця тарифів від 27.10.2026.</li>
+<li>Плани інвестування: автоматичні покупки з дробовими частками, від ≈ 50 zł. IKE/IKZE без плати за ведення; перенесення IKE в перші 12 місяців — 200 zł. PIT-8C дає сам XTB.</li>
+<li>Польський брокер під наглядом KNF; компенсаційна система KDPW — до 22 000 € (100% до 3 000 €, далі 90%). Цінні папери клієнтів відокремлені від брокера.</li>
+<li>Скарги користувачів: злами акаунтів (XTB зробив 2FA обов'язковим і додав «kill switch»), короткі збої платформи, у 2026 штраф KNF за маркетинг CFD (не стосується ETF-планів). Головна цінова претензія — 0,5% на обмін.</li>
+</ul>
+<p class="hl good">Повний автомат: щомісяця 400 zł саме розкладаються в ETF.</p>
+<p class="hl bad">0,5% на обмін з кожної покупки ≈ 0,5% за 18 років накопичено — небагато, але дорожче за mBank. Бренд асоціюється з CFD — їх не чіпати.</p>
+<div class="links"><a href="https://www.xtb.com/pl/legal-information">Тарифи XTB</a><a href="https://www.xtb.com/pl/plany-inwestycyjne">Plany Inwestycyjne</a></div>
+</div>
+
+<div class="opt">
+<div class="top"><span class="rank">5</span><h2>Bossa (DM BOŚ) — IKE/IKZE</h2></div>
+<ul>
+<li>0% на ETF в IKE/IKZE — <b>акція до кінця лютого 2027</b>, з 5.10.2026 з місячними лімітами. Поза акцією: 0,29% (мін. 5 €) на Xetra/LSE, спред валют ≈ 0,4%. Дробових часток і авто-плану не знайдено.</li>
+</ul>
+<p class="hl bad">Акція тимчасова — на 18 років mBank з постійним 0% надійніший вибір.</p>
+<div class="links"><a href="https://bossa.pl/">bossa.pl</a></div>
+</div>
+
+<div class="opt">
+<div class="top"><span class="rank">6</span><h2>Interactive Brokers (закордонний брокер)</h2></div>
+<ul>
+<li>Польщу обслуговує <b>Interactive Brokers Ireland</b> (Центробанк Ірландії; угорська IBCE влилася туди 1.08.2024). Компенсація: ірландська ICCL — 90% до 20 000 €.</li>
+<li>Комісія на Xetra 0,05%, мін. 1,25 € + біржові збори; обмін валют мін. 2 $ на операцію. Для 800 zl/міс це ≈ 1,4% від кожної покупки.</li>
+<li>Немає IKE/IKZE і немає PIT-8C: щороку PIT-38 + додаток <b>PIT/ZG</b> власноруч, з перерахунком за курсом NBP з дня перед угодою.</li>
+<li>Американські ETF (VOO, VT) все одно недоступні: правило PRIIPs/KID блокує ETF з США для роздрібних клієнтів ЄС — купувати треба ірландські UCITS (VWCE, IWDA, CSPX) — ті самі, що й у польських брокерів.</li>
+</ul>
+<p class="hl bad">Для 800 zl/міс дорожче й складніше за польського брокера, без жодної переваги. Має сенс для великих сум.</p>
+<div class="links"><a href="https://www.interactivebrokers.ie/en/general/security-investor-protection.php">Захист інвестора IBKR</a><a href="https://www.interactivebrokers.com/en/pricing/commissions-stocks-europe.php">Комісії Європа</a></div>
+</div>
+
+<div class="opt">
+<div class="top"><span class="rank">7</span><h2>Revolut — плани ETF</h2></div>
+<ul>
+<li>Revolut Securities Europe UAB (Литва), захист ≈ 22 000 €. Плани ETF від 1 € без комісії, дробові частки; обмін валют безкоштовний до ≈ 7 500 zl/міс на Standard, далі 0,5%.</li>
+<li>Мало ETF (VWCE, IWDA, CSPX є, але список змінюється), немає IKE/IKZE і PIT-8C — PIT-38 + PIT/ZG самі.</li>
+</ul>
+<p class="hl bad">Дешево і зручно, але без податкового щита і з самостійною декларацією. Для грошей на 18 років — гірше за IKE.</p>
+<div class="links"><a href="https://www.revolut.com/pl-PL/etfs">Revolut ETF</a></div>
+</div>
+
+<div class="sec">
+<h2>Який саме ETF</h2>
+<div class="tbl"><table>
+<thead><tr><th>ETF</th><th>Що всередині</th><th class="num">TER</th><th class="num">Розмір</th><th>Примітка</th></tr></thead>
+<tbody>
+<tr class="pickrow"><td><b>VWCE</b> (Vanguard FTSE All-World Acc, IE00BK5BQT80)</td><td>Весь світ, ~4 000 компаній, з ринками, що розвиваються</td><td class="num">0,14%</td><td class="num">57 млрд €</td><td>Один фонд «на все» ✅</td></tr>
+<tr><td><b>IWDA / SWDA</b> (iShares Core MSCI World Acc, IE00B4L5Y983)</td><td>Тільки розвинені ринки (~70% США)</td><td class="num">0,20%</td><td class="num">129 млрд €</td><td>Найбільший, найстаріший (з 2009)</td></tr>
+<tr><td><b>SPYI</b> (SPDR MSCI ACWI IMI Acc, IE00B3YLTY66)</td><td>Весь світ + малі компанії</td><td class="num">0,17%</td><td class="num">8,6 млрд €</td><td>Альтернатива VWCE</td></tr>
+<tr><td><b>CSPX</b> (iShares Core S&amp;P 500 Acc, IE00B5BMR087)</td><td>500 найбільших у США</td><td class="num">0,07%</td><td class="num">137 млрд €</td><td>Дешевий, але одна країна</td></tr>
+</tbody></table></div>
+<p class="sub">Брати <b>Acc</b> (накопичувальний): дивіденди реінвестуються всередині, податку в Польщі немає до продажу. Distributing — 19% з кожної виплати щороку. W-8BEN для ірландських ETF не потрібен: 15% податку США на дивіденди утримується всередині фонду й уже в його дохідності. Джерело TER/розміру — justETF, 20.11.2026.</p>
+</div>
+
+<div class="sec">
+<h2>Прогноз: 800 zł/міс <span class="est">оцінки, не обіцянка</span></h2>
+<div class="tbl"><table>
+<thead><tr><th>Сценарій (номінально, до податку)</th><th class="num">15 років (внесено 144 000)</th><th class="num">18 років (внесено 172 800)</th></tr></thead>
+<tbody>
+<tr><td>Під матрацом, 0%</td><td class="num">144 000</td><td class="num">172 800</td></tr>
+<tr><td>Все в ETF, 3%/рік (погано)</td><td class="num">181 400</td><td class="num">228 400</td></tr>
+<tr><td>Все в ETF, 5%/рік</td><td class="num">212 700</td><td class="num">277 300</td></tr>
+<tr><td>Все в ETF, 7%/рік</td><td class="num">250 300</td><td class="num">338 600</td></tr>
+<tr><td>Все в ETF, 9%/рік (як історія в PLN)</td><td class="num">295 400</td><td class="num">415 600</td></tr>
+<tr class="pickrow"><td><b>Мій план: 400 ROD (~5,5%) + 400 ETF при 3%</b></td><td class="num">≈ 201 500</td><td class="num">≈ 259 900</td></tr>
+<tr class="pickrow"><td><b>Мій план: ETF при 7%</b></td><td class="num">≈ 235 900</td><td class="num">≈ 315 000</td></tr>
+<tr class="pickrow"><td><b>Мій план: ETF при 9%</b></td><td class="num">≈ 258 500</td><td class="num">≈ 353 500</td></tr>
+<tr><td>7% у сьогоднішніх злотих (інфляція 3%)</td><td class="num">160 700</td><td class="num">198 900</td></tr>
+</tbody></table></div>
+<ul class="sub">
+<li>Щомісячна капіталізація, без комісій. ROD умовно 5,5% (= інфляція ~3% + 2,5%).</li>
+<li>Податок: з частини ROD при викупі 19% з відсотків (≈ −11 тис. на 18 років). ETF в IKE, якщо забрати для Каї раніше 60, — теж 19% з прибутку (≈ −16 тис. при 7%); якщо лишити до 60 — 0.</li>
+<li>Обвал −30% в останній рік на 100% ETF: 338 600 → ≈ 237 000 (−100 тис.). Із поступовим переходом в облігації за 5 років до мети — ≈ 304 000. Тому пункт 3 плану важливий.</li>
+</ul>
+</div>
+
+<div class="sec">
+<h2>Реальна історія: що чекати від акцій</h2>
+<ul>
+<li><b>20 років у PLN (2005–2024):</b> S&amp;P 500 12,0%/рік, MSCI World 10,3%, ACWI 9,7%, ринки, що розвиваються 7,8%, WIG 5,6%, облігації EDO 5,7%, депозити 3,1%, інфляція 3,3% (inwestomat.eu).</li>
+<li><b>Останні 15 років були винятково добрими</b> (≈ 13–14%/рік у PLN) — злотий слабшав, а техгіганти США росли. Закладатися на повторення не варто.</li>
+<li><b>Найгірше падіння:</b> 2007–2009 MSCI World −57,5% у доларах, ≈ −37% у злотих (злотий слабшає в кризу і пом'якшує удар). 2020: ≈ −29% у PLN. 2022: ≈ −11% у PLN.</li>
+<li><b>Коливання</b> ≈ 15% на рік. Найгірші 10 років поспіль — близько −2,5%/рік.</li>
+<li><b>Інфляція в Польщі:</b> середня за 20 років 3,4%/рік, але 2022 — 14,4%, 2023 — 11,4%. Тому без інвестування 800+ за 18 років втратить ≈ 40% купівельної сили.</li>
+</ul>
+<div class="links"><a href="https://inwestomat.eu/w-co-warto-inwestowac/">inwestomat.eu (20 років у PLN)</a><a href="https://www.msci.com/documents/10199/178e6643-6ae6-47b9-82be-e1fc565ededb">Фактшит MSCI World</a><a href="https://stat.gov.pl/obszary-tematyczne/ceny-handel/wskazniki-cen/wskazniki-cen-towarow-i-uslug-konsumpcyjnych-pot-inflacja-/roczne-wskazniki-cen-towarow-i-uslug-konsumpcyjnych">GUS: інфляція</a></div>
+</div>
+
+<div class="sec">
+<h2>На чиє ім'я тримати гроші Каї</h2>
+<ul>
+<li><b>800+ юридично виплачується батькові/матері</b> на утримання дитини — це не власність Каї. Тому ROD/ROS купує отримувач 800+ на своє ім'я.</li>
+<li><b>IKE/IKZE</b> — тільки на ім'я дорослого (IKE з 16, і для 16–17 лише з доходу від роботи). Один IKE на особу, спільних немає.</li>
+<li><b>Брокерський рахунок дитини:</b> у mBank eMakler — тільки для дорослих; рахунки для неповнолітніх, за оглядом bankier.pl, є в BM Pekao і BM PKO BP (не перевірено на їхніх сторінках). Мінус: гроші, що стали майном дитини, батьки ведуть «з належною турботою» (ст. 101 Кодексу родинного), а для кроків поза звичайним управлінням (напр. зняття грошей) банки часто вимагають згоди опікунського суду.</li>
+<li><b>Простіше:</b> тримати на своєму імені (ROD + IKE), а Каї передати пізніше дарунком — від батьків дитині це «нульова група»: без податку без межі, якщо подати SD-Z2 протягом 6 місяців (без заяви — до 36 120 zł за 5 років від однієї особи). Гроші — тільки переказом.</li>
+<li><b>OKI з 2027</b> (Osobiste Konto Inwestycyjne, закон Dz.U. 2026 poz. 1098, діє з 1.01.2027): тільки 18+, замість Belki — податок ≈ 0,85% на рік від вартості активів, навіть у збитковий рік. Пільга до 100 тис. zł лише для польських активів і облігацій — закордонні ETF її не мають. Для глобального ETF IKE вигідніший.</li>
+</ul>
+<div class="links"><a href="https://www.gov.pl/web/rodzina/ike-najczesciej-zadawane-pytania">IKE FAQ (gov.pl)</a><a href="https://www.podatki.gov.pl/poradniki-i-informatory/nabycie-spadku-lub-darowizny-w-najblizszej-rodzinie-zwolnienie-od-podatku-sd">Дарунок, SD-Z2</a><a href="https://eli.gov.pl/api/acts/DU/2026/1098/text/T/D20261098L.pdf">Закон про OKI</a></div>
+</div>
+
+<div class="sec">
+<h2>Ризики, про які варто пам'ятати</h2>
+<ul>
+<li><b>Ринок:</b> ETF може бути в мінусі 5–10+ років. Не продавати в паніці; гроші потрібні через 15–18 років — тому й можна.</li>
+<li><b>Послідовність (sequence risk):</b> обвал перед 18-річчям — найболючіший. Рішення — перехід в облігації за 4–5 років.</li>
+<li><b>Валюта:</b> ETF в EUR/USD; сильний злотий знижує дохід у PLN (2002–2008 так і було).</li>
+<li><b>Інфляція:</b> ROD захищає, але з запізненням (2022–23 відставали).</li>
+<li><b>Брокер:</b> папери клієнтів зберігаються окремо; при банкрутстві брокера компенсація покриває тільки нестачу (Польща до 22 000 €, Ірландія до 20 000 €).</li>
+<li><b>Правила IKE:</b> перед відкриттям уточніть у брокера, чи можна частковий зворот, чи тільки весь рахунок (у мене не перевірено).</li>
+</ul>
+</div>
+
+<footer>Дослідження 20.11.2026: obligacjeskarbowe.pl, gov.pl, podatki.gov.pl, stat.gov.pl, тарифи XTB (від 27.10.2026), сторінки mBank, огляди bankier.pl, freenance.io, inwestomat.eu, justETF, фактшит MSCI. Ставки облігацій — для продажу в листопаді 2026, щомісяця можуть змінюватися. Сторінки IBKR і Revolut не відкрилися напряму — їхні цифри з оглядів. Не перевірено: ліміти акції Bossa, ставки 2027 для IKZE, рахунки для неповнолітніх у Pekao/PKO, заборона сімейних облігацій в IKE (тільки з оглядів). Прогнози — оцінки, не обіцянка. <b>Це не фінансова порада</b>; цифри — станом на дату дослідження.</footer>
+</div>
+</body>
+</html>
