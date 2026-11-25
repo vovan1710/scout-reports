@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Головний біль і погода: що записувати (Краків)</title>
+<style>  :root { --bg:#f2f6ef; --surface:#fff; --ink:#1d2421; --muted:#5b665f; --line:#dbe4d8; --accent:#5d8a4e; --amber:#a86f12; --good:#1f7a4d; --good-soft:#e2f2e7; --bad:#b3261e; --bad-soft:#fcebe9; --warn:#8f5800; --warn-soft:#fcf0d9; --link:#0b5bb7; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { color-scheme: dark; --bg:#141815; --surface:#1c211d; --ink:#e7ece8; --muted:#9faba3; --line:#2d3530; --accent:#8fbf7d; --amber:#e8b04a; --good:#62cf95; --good-soft:#15291f; --bad:#ff8a80; --bad-soft:#3a1714; --warn:#f0b03c; --warn-soft:#2f2410; --link:#7db4ff; } }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { background: var(--bg); color: var(--ink); font: 15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; margin: 0; }
+  img { max-width: 100%; }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 20px 16px 40px; display: grid; gap: 12px; border-top: 4px solid var(--accent); }
+  .meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 12px; }
+  .eyebrow { font-size: .72rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); font-weight: 600; }
+  .upd { font-size: .8rem; color: var(--accent); font-weight: 600; }
+  h1 { font-size: 1.6rem; line-height: 1.15; margin: 0; }
+  .note { background: var(--warn-soft); border-left: 3px solid var(--warn); padding: 8px 12px; border-radius: 4px; font-size: .9rem; }
+  .note b { color: var(--warn); }
+    button { font: inherit; cursor: pointer; }
+  .mright { display: inline-flex; align-items: center; gap: 8px; }
+  .allbtn { display: inline-grid; place-items: center; width: 30px; height: 30px; padding: 0; background: var(--surface); color: var(--link); border: 1px solid var(--line); border-radius: 8px; }
+  .allbtn svg { width: 18px; height: 18px; transition: transform .2s; }
+  .allbtn[aria-pressed="true"] svg { transform: rotate(180deg); }
+  .ext { display: inline-grid; place-items: center; width: 30px; height: 30px; margin: -6px -4px; color: var(--link); border-radius: 8px; align-self: center; }
+  .ext svg { width: 17px; height: 17px; }
+  .ext:hover { background: var(--good-soft); }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 6px 12px; align-items: start; }
+  .card.pick { border-color: var(--good); box-shadow: 0 0 0 1px var(--good); }
+  .body { display: grid; gap: 5px; min-width: 0; overflow-wrap: anywhere; }
+  .top { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+  .rank { font-weight: 800; color: var(--amber); font-size: 1.25rem; }
+  h2 { font-size: 1.1rem; margin: 0; }
+  .badge { background: var(--good-soft); color: var(--good); border-radius: 999px; padding: 1px 9px; font-size: .75rem; font-weight: 700; }
+  .badge.lowb { background: var(--warn-soft); color: var(--warn); }
+  .row { display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: center; font-size: .9rem; }
+  .price { font-weight: 700; font-size: 1rem; }
+  .rate { display: inline-flex; gap: 6px; align-items: center; padding: 1px 8px; border-radius: 6px; font-size: .85rem; }
+  .rate.good { background: var(--good-soft); } .rate.mid { background: var(--warn-soft); }
+  .stars { position: relative; display: inline-block; color: #d6d0bf; letter-spacing: 1px; line-height: 1; white-space: nowrap; flex-shrink: 0; } .rate b { white-space: nowrap; flex-shrink: 0; }
+  .s-fill { position: absolute; left: 0; top: 0; overflow: hidden; white-space: nowrap; color: #e0a100; }
+  .note1 { margin: 0; font-size: .88rem; color: var(--muted); }
+  .hl { font-size: .86rem; font-weight: 600; border-radius: 6px; padding: 3px 8px; }
+  .hl.bad { color: var(--bad); background: var(--bad-soft); } .hl.bad::before { content: "▼ "; }
+  .hl.good { color: var(--good); background: var(--good-soft); } .hl.good::before { content: "▲ "; }
+  .chips { display: flex; flex-wrap: wrap; gap: 4px; }
+  .chip { border: 1px solid var(--line); border-radius: 999px; padding: 1px 8px 1px 5px; font-size: .8rem; white-space: nowrap; color: var(--ink); text-decoration: none; background: var(--surface); }
+  .chip::after { content: " ↗"; color: var(--link); font-size: .75em; }
+  .dot { display: inline-block; width: .75em; height: .75em; border-radius: 50%; margin-right: 4px; vertical-align: -1px; border: 1px solid #0003; }
+  .go { font-weight: 600; font-size: .85rem; color: var(--link); text-decoration: none; }
+  .toggle { grid-column: 1 / -1; background: transparent; border: 0; color: var(--link); font-weight: 600; font-size: .85rem; padding: 6px 0 0; text-align: left; min-height: 32px; }
+  .toggle { display: inline-flex; align-items: center; gap: 4px; justify-self: start; }
+  .chev { display: inline-grid; place-items: center; }
+  .chev svg { width: 22px; height: 22px; transition: transform .2s; }
+  .toggle[aria-expanded="true"] .chev svg { transform: rotate(180deg); }
+  .more { grid-column: 1 / -1; display: grid; gap: 8px; font-size: .88rem; min-width: 0; }
+  .more[hidden] { display: none; }
+  .fmt { margin: 0; }
+  .pc { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 16px; }
+  .pc h3 { font-size: .75rem; text-transform: uppercase; letter-spacing: .08em; margin: 0 0 2px; }
+  .pc .plus { color: var(--good); } .pc .minus { color: var(--bad); }
+  .pc ul { margin: 0; padding-left: 1.1em; }
+  .rev { margin: 0; display: grid; gap: 4px; }
+  .rev div { display: grid; grid-template-columns: 8.5em 1fr; gap: 8px; }
+  .rev dt { font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); font-weight: 700; padding-top: .15em; }
+  .rev dd { margin: 0; }
+  .gallery { position: relative; width: 100%; min-width: 0; }
+  .track { position: relative; display: flex; gap: 0; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; scrollbar-width: none; border-radius: 8px; }
+  .track::-webkit-scrollbar { display: none; }
+  .slide { flex: 0 0 100%; margin: 0; scroll-snap-align: start; }
+  .slide img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px; border: 1px solid var(--line); display: block; }
+  .slide { position: relative; }
+  .slide figcaption { position: absolute; left: 5px; bottom: 5px; font-size: .68rem; line-height: 1.3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #fff; background: #0008; padding: 2px 8px; border-radius: 999px; max-width: calc(100% - 16px); }
+  .gbtn { position: absolute; top: 50%; transform: translateY(-50%); width: 34px; height: 34px; border-radius: 50%; border: 0; background: rgba(255,255,255,.14); color: #fff; font-size: 1.6rem; font-weight: 300; line-height: 1; box-shadow: none; text-shadow: 0 1px 3px rgba(0,0,0,.65), 0 0 1px rgba(0,0,0,.5); border: 1px solid rgba(255,255,255,.35); -webkit-backdrop-filter: none; backdrop-filter: none; display: grid; place-items: center; padding: 0 0 3px; }
+  .gbtn.prev { left: 4px; } .gbtn.next { right: 4px; }
+  @media (hover: hover) { .gbtn:hover { background: rgba(255,255,255,.28); } }
+  .gbtn:disabled { opacity: 0; pointer-events: none; }
+  .gcount { position: absolute; top: 5px; right: 5px; font-size: .68rem; line-height: 1.3; color: #fff; background: #0008; padding: 2px 8px; border-radius: 999px; }
+  button:focus-visible, a:focus-visible, .track:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+  footer { color: var(--muted); font-size: .78rem; }
+  @media screen and (max-width: 640px) {
+    body { font-size: 16px; }
+    .wrap { padding: 14px 16px 32px; gap: 14px; }
+    h1 { font-size: 1.4rem; }
+    .card { grid-template-columns: minmax(0, 1fr); padding: 14px; }
+    .slide img { aspect-ratio: 4 / 3; }
+    .gbtn { width: 44px; height: 44px; font-size: 1.7rem; }
+    .gbtn.prev { left: 8px; } .gbtn.next { right: 8px; }
+    .gcount { top: 8px; right: 8px; font-size: .75rem; }
+    .slide figcaption { left: 8px; bottom: 8px; font-size: .78rem; }
+    h2 { font-size: 1.2rem; }
+    .row, .note1, .hl, .more { font-size: .95rem; }
+    .chips { gap: 8px; }
+    .chip { display: inline-flex; align-items: center; min-height: 44px; padding: 6px 12px 6px 10px; font-size: .9rem; white-space: normal; }
+    .toggle { min-height: 44px; font-size: 1rem; }
+    .allbtn, .ext { width: 44px; height: 44px; }
+    .ext { margin: -10px -8px; }
+    .pc { grid-template-columns: 1fr; }
+    .rev div { grid-template-columns: 1fr; gap: 0; }
+    .gallery { max-width: none; }
+    footer { font-size: .85rem; }
+  }
+  @media print {
+    :root, :root[data-theme] { color-scheme: light; --bg:#fff; --surface:#fff; --ink:#1d2421; --muted:#5b665f; --line:#dbe4d8; --accent:#5d8a4e; --good:#1f7a4d; --good-soft:#e2f2e7; --bad:#b3261e; --bad-soft:#fcebe9; --warn:#8f5800; --warn-soft:#fcf0d9; --link:#0b5bb7; }
+    @page { size: A4; margin: 9mm; }
+    body { font-size: 8.8pt; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .wrap { display: block; max-width: none; padding: 0; border: 0; }
+    .wrap > * { margin-bottom: 6px; }
+    .allbtn, .toggle, .gbtn, .gcount { display: none !important; }
+    .ext { width: 16px; height: 16px; margin: 0; } .ext svg { width: 11px; height: 11px; }
+    .gallery, .slide { position: static; }
+    .card { break-inside: avoid; box-shadow: none; grid-template-columns: 80px 1fr; padding: 7px 9px; gap: 3px 10px; }
+    .card.pick { border-width: 2px; box-shadow: none; }
+    .gallery { width: 80px; }
+    .slide img { width: 80px; height: 80px; aspect-ratio: auto; }
+    .more, .more[hidden] { display: grid !important; gap: 3px; font-size: 8.5pt; }
+    .more, .more[hidden] { grid-template-columns: 1fr 1fr; column-gap: 12px; }
+    .fmt { grid-column: 1 / -1; }
+    .pc { grid-template-columns: 1fr; gap: 2px; }
+    .rev div { grid-template-columns: 1fr; gap: 0; }
+    .rev dt { font-size: 7pt; }
+    .gallery { max-width: none; }
+    .track { overflow: hidden; }
+    .slide { flex: 0 0 100%; }
+    .slide ~ .slide { display: none; }
+    .slide figcaption { display: none; }
+    .slide img { border-radius: 3px; }
+    a { text-decoration: none; }
+  }
+
+  .wrap > * { min-width: 0; } .wrap { grid-template-columns: minmax(0, 1fr); }
+  .tbl { overflow-x: auto; -webkit-overflow-scrolling: touch; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; }
+  .tbl table { border-collapse: collapse; width: 100%; font-size: .84rem; min-width: 640px; }
+  .tbl th, .tbl td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .tbl th { font-size: .7rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+  .tbl tr.pick td { background: var(--good-soft); }
+  .tbl tr:last-child td { border-bottom: 0; }
+  .note.info { background: var(--good-soft); border-left-color: var(--good); }
+  .note.info b { color: var(--good); }
+  .facts { margin: 0; padding-left: 1.1em; }
+  .facts li { margin: 2px 0; }
+  .uv { color: var(--warn); font-weight: 600; font-size: .8em; }
+  .rate.none { background: var(--warn-soft); color: var(--warn); }
+
+  .q { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; }
+  .q li { border-left: 3px solid var(--line); padding: 2px 0 2px 8px; }
+  .q li.p { border-color: var(--good); } .q li.m { border-color: var(--warn); } .q li.n { border-color: var(--bad); }
+  .q .src { color: var(--muted); font-size: .8rem; }
+  .facts { margin: 0; padding-left: 1.1em; }
+  .tbl table { min-width: 560px; }
+  .tbl td.incl { min-width: 260px; font-size: .8rem; }
+  .lnk { display: inline-block; font-size: .78em; font-weight: 700; color: var(--link); background: var(--surface); border: 1px solid var(--link); border-radius: 6px; padding: 0 6px; white-space: nowrap; }
+  .score { display: inline-block; font-weight: 800; font-size: .85rem; color: var(--good); background: var(--good-soft); border-radius: 6px; padding: 0 6px; white-space: nowrap; }
+  .why { display: block; margin-top: 2px; font-size: .9em; }
+  .tbl.fit table { min-width: 0; }
+  .tbl.fit td.num { white-space: nowrap; }
+  .tbl.fit th.num { white-space: normal; }
+  .tbl.fit th, .tbl.fit td { padding: 6px; }
+</style>
+<style>
+  .wrap > * { min-width: 0; } .wrap { grid-template-columns: minmax(0, 1fr); }
+  .tbl { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; }
+  .tbl table { border-collapse: collapse; width: 100%; font-size: .86rem; min-width: 680px; }
+  .tbl th, .tbl td { padding: 7px 9px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+  .tbl th { font-size: .74rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+  .sec { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; }
+  .sec h2 { margin: 0 0 6px; font-size: 1.15rem; } .sec h3 { margin: 10px 0 4px; font-size: 1rem; }
+  .sec ul, .sec ol { margin: 4px 0; padding-left: 20px; } .sec li { margin: 3px 0; }
+  .plan { background: var(--good-soft); border-left: 4px solid var(--good); border-radius: 6px; padding: 10px 14px; }
+  .plan h2 { margin: 0 0 4px; color: var(--good); font-size: 1.15rem; }
+  .plan ol { margin: 4px 0; padding-left: 22px; } .plan li { margin: 4px 0; }
+  .ev { display: inline-block; font-size: .72rem; font-weight: 700; padding: 1px 7px; border-radius: 999px; white-space: nowrap; }
+  .ev.s { background: var(--good-soft); color: var(--good); } .ev.m { background: var(--warn-soft); color: var(--warn); } .ev.w { background: var(--bad-soft); color: var(--bad); }
+  code, .url { font: .78rem/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; overflow-wrap: anywhere; }
+  .url { display: block; background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 6px 8px; margin: 4px 0; }
+  .src { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; display: grid; gap: 4px; }
+  .src h3 { margin: 0; font-size: 1rem; } .src p { margin: 0; font-size: .9rem; }
+  .ok { color: var(--good); font-weight: 600; font-size: .85rem; }
+  details > summary { cursor: pointer; color: var(--link); font-weight: 600; font-size: .88rem; }
+  a { color: var(--link); }
+  .sub { font-size: .88rem; color: var(--muted); margin: 0; }
+  footer { font-size: .8rem; color: var(--muted); border-top: 1px solid var(--line); padding-top: 10px; }
+  @media (max-width: 600px) { h1 { font-size: 1.3rem; } }
+</style>
+</head>
+<body><div class="wrap">
+<div class="meta"><span class="eyebrow">Scout · журнал головного болю · Краків</span><span class="upd">Дослідження: 25.11.2026</span></div>
+<h1>Головний біль і погода: що записувати, звідки брати дані і як шукати закономірність</h1>
+<p class="sub">Для журналу нападів (дата, час, сила 1–10, ліки) у Кракові (50.06, 19.94). Усі посилання на дані перевірено 25.11.2026 справжніми запитами: ключі не потрібні.</p>
+
+<div class="note"><b>Не медична порада.</b> Це інструмент для спостереження, не діагноз. До невролога — якщо головний біль став частішим, сильнішим або іншим, з'явився новий тип болю, біль «найсильніший у житті», раптовий (за секунди), з температурою, слабкістю, онімінням, порушенням мови чи зору, або ліки від болю потрібні 10+ днів на місяць.</div>
+
+<div class="plan">
+<h2>Коротко</h2>
+<ol>
+<li><b>Найкраще підтверджено</b> (але лише для частини людей): <b>падіння тиску</b> за добу, <b>потепління / спека</b>, <b>теплий сильний вітер-фен</b> (у нас — halny), <b>грози</b>, <b>смог</b> (NO₂, PM2.5). Вологість, опади, Kp (магнітні бурі), пилок, УФ — <b>слабкі</b> докази; записувати можна, бо це безкоштовно, але не чекати від них багато.</li>
+<li><b>Не-погодні фактори сильніші</b> за погоду: стрес (і його спад), сон, менструальний цикл, пропущена їжа, алкоголь, кофеїн 3+ порції. Їх варто писати обов'язково.</li>
+<li><b>Ліки рахувати щомісяця:</b> суматриптан ≥ 10 днів/міс або парацетамол ≥ 15 днів/міс понад 3 місяці → ризик головного болю від надмірного вживання ліків.</li>
+<li><b>Писати і дні без болю</b>, інакше порівнювати нема з чим. Висновки — не раніше ніж через 3 місяці і ≥ 15–20 нападів.</li>
+<li>Уся погода і повітря — з <b>Open-Meteo</b> (2 посилання на день), Kp — з <b>GFZ Potsdam</b>, вимірений смог — з <b>GIOŚ</b> (станція Al. Krasińskiego).</li>
+</ol>
+</div>
+
+<div class="sec">
+<h2>1. Погода: що записувати і наскільки це доведено</h2>
+<div class="tbl"><table>
+<thead><tr><th>Параметр</th><th>Доказ</th><th>Що кажуть дослідження</th><th>Поріг для аналізу</th></tr></thead>
+<tbody>
+<tr><td><b>Тиск (MSL) і його зміна за 24 год</b></td><td><span class="ev s">помірний</span></td><td>У Японії напади частішали, коли тиск падав на ≥ 5 гПа між днями (<a href="https://pubmed.ncbi.nlm.nih.gov/21921370/">Kimoto 2011</a>) і при тиску на 6–10 гПа нижче 1013 (<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4684554/">Okuma 2015</a>). Огляд 2025: результати суперечливі, але падіння й різкі коливання — найчастіша знахідка (<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12617017/">систематичний огляд</a>).</td><td>Δp(день − попередній) ≤ −5 гПа; або середній тиск ≤ 1007 гПа; або коливання max−min за добу ≥ 8 гПа</td></tr>
+<tr><td><b>Температура (середня, макс.) і її зміна</b></td><td><span class="ev s">помірний</span></td><td>Бостон, ~7000 візитів у швидку: ризик сильного головного болю ↑ 7,5% на кожні +5 °C за попередні 24 год; нижчий тиск — слабший ефект (<a href="https://pubmed.ncbi.nlm.nih.gov/19273827/">Mukamal 2009, Neurology</a>).</td><td>ΔTmax ≥ +5 °C за добу; Tmax ≥ 28 °C</td></tr>
+<tr><td><b>Вітер, пориви, напрям; фен (halny)</b></td><td><span class="ev m">помірний, для частини людей</span></td><td>Калгарі, теплий фен-вітер chinook: шанс нападу ↑ у день перед ним (OR 1,24) і в дні з сильним вітром &gt; 38 км/год (OR 1,19); чутлива лише частина пацієнтів (<a href="https://pubmed.ncbi.nlm.nih.gov/10668687/">Cooke 2000, Neurology</a>). Halny — той самий тип вітру, найсильніший на Підгалі; до Кракова доходить слабше.</td><td>Пориви ≥ 38 км/год; halny: Закопане, напрям 135–225° (південь), пориви ≥ 50 км/год, різке потепління й сухе повітря</td></tr>
+<tr><td><b>Грози / блискавки</b></td><td><span class="ev m">помірний</span></td><td>Цинциннаті й Сент-Луїс: у дні з блискавками в радіусі 40 км шанс головного болю ↑ (<a href="https://pubmed.ncbi.nlm.nih.gov/23349357/">Martin 2013, Cephalalgia</a>).</td><td>weather_code 95–99 у день або напередодні</td></tr>
+<tr><td><b>Якість повітря: PM2.5, PM10, NO₂, O₃</b></td><td><span class="ev m">помірний</span></td><td>Систематичний огляд 14 досліджень: NO₂, CO, PM10, PM2.5 пов'язані з мігренню, по O₃ і SO₂ висновку нема (<a href="https://pubmed.ncbi.nlm.nih.gov/38363415/">огляд 2024</a>). Онтаріо: більше візитів у швидку з головним болем у дні з вищим забрудненням (<a href="https://brieflands.com/journals/healthscope/articles/20172">Szyszkowicz</a>). Але в Бостоні зв'язку не знайшли (Mukamal 2009). Для Кракова взимку (смог) — варто писати.</td><td>PM2.5 середнє за добу &gt; 15 мкг/м³ (норма ВООЗ 2021), &gt; 25 — високе; NO₂ &gt; 25 мкг/м³</td></tr>
+<tr><td><b>Вологість, точка роси</b></td><td><span class="ev w">слабкий</span></td><td>У більшості досліджень зв'язку нема (Mukamal 2009); окремі роботи знаходять для підгрупи. Записувати як фон.</td><td>RH середня ≥ 85% або ≤ 40%</td></tr>
+<tr><td><b>Опади, хмарність, сонце</b></td><td><span class="ev w">слабкий</span></td><td>Опади — радше «маркер» циклону (того самого падіння тиску). Яскраве світло й блиск — частий тригер за опитуваннями, але не підтверджений щоденниками.</td><td>Опади ≥ 1 мм; сонце ≥ 6 год</td></tr>
+<tr><td><b>Геомагнітна активність (Kp)</b></td><td><span class="ev w">слабкий / нема</span></td><td>Аналіз ~3 років дописів у Twitter: зв'язку з магнітними бурями не знайдено (<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5180106/">PMC5180106</a>); український препринт 2024 знайшов слабку кореляцію з пошуковими запитами (<a href="https://medrxiv.org/content/10.1101/2024.11.15.24317370v1">medRxiv</a>). Записувати — бо це один запит.</td><td>Kp max за добу ≥ 5 (буря)</td></tr>
+<tr><td><b>Пилок</b></td><td><span class="ev w">слабкий, непрямий</span></td><td>Алергічний риніт пов'язаний з частішою й тяжчою мігренню (+33% шансу частих нападів), але прямих досліджень «пилок за день → напад» нема (<a href="https://journals.sagepub.com/doi/10.1177/0333102413512031">Martin 2014, Cephalalgia</a>). Має сенс, якщо є алергія. Сезон у Кракові: вільха/береза березень–травень, трави травень–липень, полин/амброзія серпень–вересень; зараз (листопад) — нулі.</td><td>Береза &gt; 50, трави &gt; 30 зерен/м³</td></tr>
+<tr><td><b>УФ, тривалість світлового дня</b></td><td><span class="ev w">слабкий</span></td><td>Пряма доказовість слабка; світловий день — це радше сезон (а з сезоном змінюється все). Записувати для контролю сезонності.</td><td>—</td></tr>
+</tbody></table></div>
+<p class="sub">Головне з досліджень: погодно-чутлива лише <b>частина</b> людей, і в кожної — свої параметри (у когось — падіння тиску, у когось — зростання). Метааналіз опитувань: стрес названо тригером у 58%, сон — 41%, погоду — 32% (<a href="https://pubmed.ncbi.nlm.nih.gov/28825314/">Pellegrino 2018, Cephalalgia</a>). Тому мета журналу — перевірити, чи вона з цієї частини, і якими саме параметрами.</p>
+</div>
+
+<div class="sec">
+<h2>2. Не-погодні фактори — записувати щодня</h2>
+<div class="tbl"><table>
+<thead><tr><th>Фактор</th><th>Як записати</th><th>Чому</th></tr></thead>
+<tbody>
+<tr><td><b>Ліки</b></td><td>Що, доза, час, допомогло чи ні (0/1/2)</td><td>Рахувати <b>дні з ліками</b> на місяць. Пороги <a href="https://ichd-3.org/8-headache-attributed-to-a-substance-or-its-withdrawal/8-2-medication-overuse-headache-moh/">ICHD-3 8.2</a> (міжнародна класифікація): <b>триптани (суматриптан) ≥ 10 днів/міс</b>, <b>парацетамол ≥ 15 днів/міс</b>, кілька класів разом ≥ 10 днів/міс — понад 3 місяці → головний біль від надмірного вживання ліків (MOH). Наближення до 8–10 днів — привід піти до невролога по профілактику.</td></tr>
+<tr><td><b>Менструальний цикл</b></td><td>День циклу (1 = перший день менструації)</td><td>Напади частіші, коли падає естроген: з −2 до +3 дня від початку менструації (<a href="https://read.qxmd.com/read/16971700/incidence-of-migraine-relative-to-menstrual-cycle-phases-of-rising-and-falling-estrogen">MacGregor 2006, Neurology</a>). Найсильніший відомий жіночий тригер — без нього погодний аналіз дасть хибні результати.</td></tr>
+<tr><td><b>Сон</b></td><td>Ліг, встав, години, якість 1–5, пробудження</td><td>Сон — другий за частотою тригер (Pellegrino 2018). Шкодить і недосип, і «відсипання» у вихідні.</td></tr>
+<tr><td><b>Стрес</b></td><td>Рівень 1–5 увечері</td><td>Важливий не стільки стрес, скільки його <b>спад</b>: падіння стресу від вечора до вечора → шанс нападу ↑ у наступні 6–18 год (<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4001194/">Lipton 2014, Neurology</a>, «головний біль вихідного дня»).</td></tr>
+<tr><td><b>Кофеїн</b></td><td>Кількість порцій (кава, чай, енергетик) і час останньої</td><td>1–2 порції — без ефекту, 3+ — шанс нападу ↑ того ж і наступного дня (<a href="https://www.sciencedaily.com/releases/2019/08/190808091422.htm">Mostofsky 2019, Am J Med</a>). Пропущена звична кава теж може спричинити біль (відміна).</td></tr>
+<tr><td><b>Їжа</b></td><td>Пропущений прийом їжі (так/ні), довгий проміжок без їжі; підозрілі продукти — вільним текстом</td><td>Голод — один із частіших тригерів за опитуваннями. Конкретні продукти (шоколад, сир) — докази слабкі; шоколад часто — наслідок продрому, не причина.</td></tr>
+<tr><td><b>Вода</b></td><td>Склянок / літрів</td><td>Зневоднення — частий тригер за самозвітами; контрольованих доказів мало.</td></tr>
+<tr><td><b>Алкоголь</b></td><td>Порції, що саме (червоне вино окремо)</td><td>Частий самозвітний тригер, особливо червоне вино; у щоденникових дослідженнях ефект скромніший.</td></tr>
+<tr><td><b>Екран, фізнавантаження, подорож</b></td><td>Години перед екраном; спорт так/ні; переїзд/літак</td><td>Докази слабкі, але це дешево записати і може пояснити «дивні» напади.</td></tr>
+<tr><td><b>Ознаки продрому</b></td><td>Позіхання, тяга до солодкого, втома, світлочутливість за години до болю</td><td>Допомагає не сплутати ранні симптоми нападу з «тригером» (наприклад, «з'їла шоколад → біль»).</td></tr>
+</tbody></table></div>
+</div>
+
+<div class="sec">
+<h2>3. Джерела даних — готові посилання (перевірені)</h2>
+<p class="sub">Підставте <code>{DATE}</code> = день нападу (РРРР-ММ-ДД), <code>{PREV_DATE}</code> = день перед ним. Кожен запит повертає обидва дні. Перевірено 25.11.2026 на датах 23–24.11.2026 — значення нижче справжні. Додайте <code>&amp;format=csv</code> до будь-якого Open-Meteo запиту — отримаєте CSV для таблиці (у Google Sheets: <code>=IMPORTDATA("…&amp;format=csv")</code>).</p>
+</div>
+
+<div class="src">
+<h3>A. Погода за день (тиск, температура, вологість, вітер, опади, грози, УФ, сонце, світловий день) — Open-Meteo</h3>
+<p><b>За датами</b> (останні ~3 місяці; для старіших — заміна домену, див. нижче):</p>
+<code class="url">https://api.open-meteo.com/v1/forecast?latitude=50.06&amp;longitude=19.94&amp;timezone=Europe%2FWarsaw&amp;start_date={PREV_DATE}&amp;end_date={DATE}&amp;daily=pressure_msl_mean,pressure_msl_min,pressure_msl_max,temperature_2m_mean,temperature_2m_max,temperature_2m_min,relative_humidity_2m_mean,dew_point_2m_mean,precipitation_sum,weather_code,wind_speed_10m_max,wind_gusts_10m_max,wind_direction_10m_dominant,cloud_cover_mean,uv_index_max,sunshine_duration,daylight_duration,sunrise,sunset</code>
+<p><b>Сьогодні + вчора</b> (якщо записувати в день нападу):</p>
+<code class="url">https://api.open-meteo.com/v1/forecast?latitude=50.06&amp;longitude=19.94&amp;timezone=Europe%2FWarsaw&amp;past_days=1&amp;forecast_days=1&amp;daily=pressure_msl_mean,pressure_msl_min,pressure_msl_max,temperature_2m_mean,temperature_2m_max,temperature_2m_min,relative_humidity_2m_mean,dew_point_2m_mean,precipitation_sum,weather_code,wind_speed_10m_max,wind_gusts_10m_max,wind_direction_10m_dominant,cloud_cover_mean,uv_index_max,sunshine_duration,daylight_duration,sunrise,sunset</code>
+<p><b>Погодинно</b> (щоб порахувати зміну тиску за 24 год рівно до години нападу):</p>
+<code class="url">https://api.open-meteo.com/v1/forecast?latitude=50.06&amp;longitude=19.94&amp;timezone=Europe%2FWarsaw&amp;start_date={PREV_DATE}&amp;end_date={DATE}&amp;hourly=pressure_msl,temperature_2m,relative_humidity_2m,wind_gusts_10m,wind_direction_10m,precipitation,weather_code</code>
+<p><b>Старі дати (будь-який рік, з 1940)</b>: домен <code>archive-api.open-meteo.com/v1/archive</code>, ті самі параметри <code>start_date/end_date/daily</code> (крім <code>uv_index_max</code>), дані з'являються із затримкою ~5 днів. Без затримки для минулого: <code>historical-forecast-api.open-meteo.com/v1/forecast</code> (з 2022).</p>
+<p><b>Що читати:</b> <code>daily.pressure_msl_mean[1] − [0]</code> = Δтиску; <code>daily.temperature_2m_max[1] − [0]</code> = ΔTmax; <code>weather_code</code> 95–99 = гроза; <code>sunshine_duration</code>, <code>daylight_duration</code> — секунди (÷3600 = години); вітер — км/год, напрям — градуси (180 = з півдня).</p>
+<p class="ok">✓ 23→24.11: тиск 1013,5 → 1021,9 гПа (Δ +8,4), Tmax 2,1 → 1,6 °C, RH 83/83%, опади 1,3/1,5 мм, пориви 41,4/46,1 км/год (захід, 271°/263°), сонце 0,3/0 год, світловий день 8,7 год, код 71/73 (сніг). Archive: 1013,9 → 1022,2 гПа (сусідня клітинка сітки — відмінність ~0,3 гПа нормальна).</p>
+</div>
+
+<div class="src">
+<h3>B. Halny / фен — вітер у Закопаному (Open-Meteo)</h3>
+<code class="url">https://api.open-meteo.com/v1/forecast?latitude=49.30&amp;longitude=19.95&amp;timezone=Europe%2FWarsaw&amp;start_date={PREV_DATE}&amp;end_date={DATE}&amp;daily=wind_gusts_10m_max,wind_direction_10m_dominant,temperature_2m_max,relative_humidity_2m_min</code>
+<p><b>Що читати:</b> halny ймовірний, коли <code>wind_direction_10m_dominant</code> 135–225° (південь) + <code>wind_gusts_10m_max</code> ≥ 50 км/год + стрибок <code>temperature_2m_max</code> і низька <code>relative_humidity_2m_min</code>. Для Кракова той самий день — південний вітер і потепління. Варіант «сьогодні+вчора»: замість дат <code>past_days=1&amp;forecast_days=1</code>.</p>
+<p class="ok">✓ 23–24.11: пориви 38,5/36,7 км/год, напрям 286°/254° (захід) → не halny.</p>
+</div>
+
+<div class="src">
+<h3>C. Якість повітря (PM2.5, PM10, NO₂, O₃, європейський індекс AQI) — Open-Meteo / CAMS (модель)</h3>
+<code class="url">https://air-quality-api.open-meteo.com/v1/air-quality?latitude=50.06&amp;longitude=19.94&amp;timezone=Europe%2FWarsaw&amp;start_date={PREV_DATE}&amp;end_date={DATE}&amp;hourly=pm2_5,pm10,nitrogen_dioxide,ozone,european_aqi</code>
+<code class="url">https://air-quality-api.open-meteo.com/v1/air-quality?latitude=50.06&amp;longitude=19.94&amp;timezone=Europe%2FWarsaw&amp;past_days=1&amp;forecast_days=1&amp;hourly=pm2_5,pm10,nitrogen_dioxide,ozone,european_aqi</code>
+<p><b>Що читати:</b> тільки погодинні дані (daily нема) — 48 значень; середнє з перших 24 = попередній день, з наступних 24 = день нападу; також max. Одиниці мкг/м³.</p>
+<p class="ok">✓ PM2.5 середнє 18,0 / 11,1 (max 45,9 / 24,0); PM10 20,4 / 13,4; NO₂ 16,4 / 13,4; O₃ 32,7 / 40,2; EAQI 38 / 30.</p>
+</div>
+
+<div class="src">
+<h3>D. Якість повітря — виміряна, GIOŚ (державний моніторинг, станція Kraków Al. Krasińskiego)</h3>
+<p>Сенсори станції 400: PM2.5 = <code>2752</code>, PM10 = <code>2750</code>, NO₂ = <code>2747</code>, CO = <code>2745</code>.</p>
+<code class="url">https://api.gios.gov.pl/pjp-api/v1/rest/archivalData/getDataBySensor/2752?dateFrom={PREV_DATE}%2000:00&amp;dateTo={DATE}%2023:00&amp;size=60</code>
+<code class="url">https://api.gios.gov.pl/pjp-api/v1/rest/data/getData/2752?size=72</code>
+<p><b>Що читати:</b> масив <code>"Lista archiwalnych wyników pomiarów"</code> (або <code>"Lista danych pomiarowych"</code> для другого — останні ~3 доби), поля <code>Data</code> і <code>Wartość</code>; середнє за кожну дату. Це вулична станція біля траси — NO₂ тут вищий, ніж у моделі. Інші станції: <code>station/sensors/{id}</code> (Bujaka 401, Bulwarowa 402, Złoty Róg 10123).</p>
+<p class="ok">✓ PM2.5 15,3 / 9,1; PM10 18,0 / 14,5; NO₂ 29,2 / 22,4 мкг/м³ (24 години даних на день).</p>
+</div>
+
+<div class="src">
+<h3>E. Пилок (вільха, береза, трави, полин, амброзія) — Open-Meteo / CAMS</h3>
+<code class="url">https://air-quality-api.open-meteo.com/v1/air-quality?latitude=50.06&amp;longitude=19.94&amp;timezone=Europe%2FWarsaw&amp;start_date={PREV_DATE}&amp;end_date={DATE}&amp;hourly=alder_pollen,birch_pollen,grass_pollen,mugwort_pollen,ragweed_pollen</code>
+<p><b>Що читати:</b> max за кожну добу, зерен/м³. Варіант <code>past_days=1&amp;forecast_days=1</code> працює так само.</p>
+<p class="ok">✓ 23–24.11: всі 0 (не сезон). Контроль 1–2.05.2026: береза до 72,1, трави до 5,7 — дані є.</p>
+</div>
+
+<div class="src">
+<h3>F. Геомагнітний індекс Kp — GFZ Potsdam (офіційне джерело Kp)</h3>
+<code class="url">https://kp.gfz.de/app/json/?start={PREV_DATE}T00:00:00Z&amp;end={DATE}T23:59:59Z&amp;index=Kp</code>
+<code class="url">https://kp.gfz.de/app/json/?start={PREV_DATE}T00:00:00Z&amp;end={DATE}T23:59:59Z&amp;index=Ap</code>
+<p><b>Що читати:</b> <code>Kp</code> — 8 значень на добу (кожні 3 год, UTC); перші 8 — попередній день, наступні 8 — день нападу; беремо max. <code>Ap</code> — одне число на добу. Старий домен <code>kp.gfz-potsdam.de</code> тепер дає редирект 301 — використовувати <code>kp.gfz.de</code>.</p>
+<p><b>Варіант «останні дні»</b> (NOAA SWPC, 7 днів, 3-годинний Kp): <code>https://services.swpc.noaa.gov/products/noaa-planetary-k-index.json</code> — поля <code>time_tag</code>, <code>Kp</code>; або текст за 30 днів <code>https://services.swpc.noaa.gov/text/daily-geomagnetic-indices.txt</code>.</p>
+<p class="ok">✓ GFZ: Kp max 1,7 / 1,3; Ap 2 / 3 (спокійно). NOAA повертає останні 7 днів.</p>
+</div>
+
+<div class="sec">
+<h2>4. Як шукати закономірність</h2>
+<h3>Що записувати</h3>
+<ul>
+<li><b>Кожен день, а не лише дні з болем</b>: рядок на день, колонка «напад почався сьогодні» (0/1) і сила. Без днів без болю порівнювати нема з чим — частина днів з падінням тиску теж була без болю.</li>
+<li>Рахувати <b>день початку</b> нападу. Напад на 2 дні = 1 подія; другий день не рахується як новий.</li>
+<li>Погоду підтягувати для <b>кожного дня</b> (за 3 місяці — один запит на весь період: <code>start_date</code> = перший день, <code>end_date</code> = останній, <code>&amp;format=csv</code>).</li>
+</ul>
+<h3>Що порахувати (колонки в таблиці)</h3>
+<ul>
+<li>Δp = тиск(день) − тиск(попередній день); ΔTmax; коливання тиску max−min за добу.</li>
+<li>Прапорці 0/1: Δp ≤ −5; ΔTmax ≥ +5; пориви ≥ 38; гроза; PM2.5 &gt; 25; Kp ≥ 5; день циклу −2…+3; сон &lt; 6 год; кава ≥ 3; спад стресу.</li>
+<li>Для кожного прапорця і для «вчора» (лаг 1 — вплив з затримкою):<br><b>частка днів з нападом, коли прапорець = 1</b> проти <b>частки, коли = 0</b>. Відношення = відносний ризик (RR).<br>Приклад: з 12 днів з Δp ≤ −5 напад був у 5 (42%), з 78 інших — у 10 (13%) → RR ≈ 3,2.</li>
+<li>У Google Sheets: <code>=AVERAGEIFS(напад; прапорець; 1)</code> і <code>=AVERAGEIFS(напад; прапорець; 0)</code>. Перевірка, чи це не випадковість: точний тест Фішера (будь-який онлайн-калькулятор таблиці 2×2).</li>
+</ul>
+<h3>Скільки даних треба</h3>
+<ul>
+<li>Мінімум <b>3 місяці щоденних записів</b> і <b>15–20 нападів</b>. У кожній групі (прапорець = 1) — хоча б 8–10 днів; інакше одна-дві випадковості змінюють висновок.</li>
+<li>Краще 6 місяців, щоб охопити різні сезони.</li>
+</ul>
+<h3>Обережно з хибними кореляціями</h3>
+<ul>
+<li><b>Множинні порівняння</b>: 15 параметрів × 2 лаги = 30 перевірок. За порогу p &lt; 0,05 одна-дві «знахідки» з'являться випадково. Тому заздалегідь вибрати 3 головні гіпотези (наприклад: падіння тиску, менструація, сон) і вірити передусім їм; решту перевірити повторно на наступних 3 місяцях.</li>
+<li><b>Плутання факторів</b>: взимку в Кракові одночасно смог, низький тиск, мало світла і більше стресу. Порівнювати всередині сезону; дні циклу −2…+3 аналізувати окремо.</li>
+<li><b>Очікування</b>: якщо думати «тиск падає — зараз заболить», біль частіше помічають і записують. Писати погоду не самостійно «на відчуття», а з API після факту.</li>
+<li><b>Продром</b>: тяга до солодкого чи втома можуть бути вже початком нападу, не причиною.</li>
+<li>Навіть якщо зв'язок знайдено — погоду не змінити; користь у тому, щоб у ризикові дні краще спати, не пропускати їжу і мати ліки під рукою. Профілактику й ліки обговорювати з неврологом.</li>
+</ul>
+</div>
+
+<div class="sec">
+<h2>Шаблон колонок таблиці</h2>
+<p class="sub"><code>дата | напад (0/1) | час початку | сила 1–10 | тривалість год | ліки (назва, час) | допомогли 0/1/2 | день циклу | сон год | якість сну 1–5 | стрес 1–5 | кава порцій | алкоголь | пропуск їжі 0/1 | вода л | екран год | нотатки | p_mean | Δp | p_max−min | Tmax | ΔTmax | RH | опади | пориви | напрям | гроза 0/1 | сонце год | PM2.5 | PM10 | NO₂ | O₃ | пилок max | Kp max | днів з триптаном за місяць | днів з парацетамолом за місяць</code></p>
+</div>
+
+<footer>Дослідження 25.11.2026. Усі API-посилання перевірено curl-запитами 25.11.2026 на датах 23–24.11.2026 (Open-Meteo forecast / archive / historical-forecast / air-quality, GIOŚ pjp-api v1, GFZ Kp, NOAA SWPC); ключі не потрібні; формат API може змінитися. Open-Meteo — модельні дані з сітки (~1–11 км), не станція. Медичні пороги — з ICHD-3; це не медична порада. Посилання на дослідження — PubMed / PMC / журнали.</footer>
+</div></body></html>
